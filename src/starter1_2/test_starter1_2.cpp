@@ -9,7 +9,8 @@ using namespace cv;
 
 
 int main()
-{
+{  /* use of the opencv function remap to make the symetry of a picture
+  we will reimplement remap later for the rotation*/
   cv::Mat src, dst;
   cv::Mat map_x, map_y;
   const char* remap_window = "Symetry";

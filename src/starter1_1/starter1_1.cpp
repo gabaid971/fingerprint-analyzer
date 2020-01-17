@@ -7,7 +7,8 @@ using namespace cv;
 using namespace std;
 
 int main()
-{
+{   /* this function only use opencv functions.
+    we just add a black rectangle on a fingreprint picture */
     Mat image;
     image = imread( "images/fingerprint.jpg", IMREAD_GRAYSCALE); // Read the file
     if( image.empty() )                      // Check for invalid input

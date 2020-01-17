@@ -42,7 +42,6 @@ int main()
   imshow( remap_window, dst );
   cout << "the error is: " << error << endl;
   cout << "The centroid is: " << Mat(p) << endl;
-  cout << "The size of the image is: " << src.size() << endl;
   waitKey(0);
   return 0;
 }
