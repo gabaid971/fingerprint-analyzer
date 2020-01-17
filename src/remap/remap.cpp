@@ -50,55 +50,89 @@ float cubic_spline( Point p1, Point p2, Point p3, Point p4, float x)
 }
 */
 
-uchar calculate_pixel_value( int x, int y, float theta, Point center, Mat src)
+uchar calculate_pixel_value( int x, int y, float theta, Point center, Mat src,  string interpolation )
 {
   uchar value = 255; // the value of the rotated pixel, between 0 and 255
   float x_p = (float)(cos(-theta)*x + sin(-theta)*y + (1-cos(-theta))*center.x -sin(-theta)*center.y);
   float y_p = (float)(-sin(-theta)*x + cos(-theta)*y + sin(-theta)*center.x + (1-cos(-theta))*center.y);
   int i = (int) floor(x_p);
   int j = (int) floor(y_p);
-  //value = src.at<uchar>(j,i);
-  if (i > 0 && j > 0 && i < src.cols - 2 && j < src.rows - 2)
+  if (interpolation == "neighbor")
   {
-    float p1 = cubic_spline( Point(i-1, src.at<uchar>(j-1, i-1)), Point(i, src.at<uchar>(j-1, i)), Point(i+1, src.at<uchar>(j-1, i+1)), Point(i+2, src.at<uchar>(j-1, i+2)), x_p);
-    float p2 = cubic_spline( Point(i-1, src.at<uchar>(j, i-1)), Point(i, src.at<uchar>(j, i)), Point(i+1, src.at<uchar>(j, i+1)), Point(i+2, src.at<uchar>(j, i+2)), x_p);
-    float p3 = cubic_spline( Point(i-1, src.at<uchar>(j+1, i-1)), Point(i, src.at<uchar>(j+1, i)), Point(i+1, src.at<uchar>(j+1, i+1)), Point(i+2, src.at<uchar>(j+1, i+2)), x_p);
-    float p4 = cubic_spline( Point(i-1, src.at<uchar>(j+2, i-1)), Point(i, src.at<uchar>(j+2, i)), Point(i+1, src.at<uchar>(j+2, i+1)), Point(i+2, src.at<uchar>(j+2, i+2)), x_p);
-    float float_value = cubic_spline( Point(j-1, p1), Point(j, p2), Point(j+1, p3), Point(j+2, p4), y_p);
-    if (float_value < 0)
+    if (i > 0 && j > 0 && i < src.cols  && j < src.rows)
     {
-      float_value = 0;
+      value = src.at<uchar>(j,i);
     }
-    if (float_value > 255)
+  }
+  if (interpolation == "bilinear")
+  {
+    if (i > 0 && j > 0 && i < src.cols  && j < src.rows )
     {
-      float_value = 255;
+      float dir1 = (float)(src.at<uchar>(j, i+1) - src.at<uchar>(j, i));
+      float x_trans = x_p - floor(x_p);
+      float p1 = (float)src.at<uchar>(j, i) + dir1*x_trans;
+      float dir2 = src.at<uchar>(j+1, i+1) - src.at<uchar>(j+1, i);
+      float p2 = (float)src.at<uchar>(j+1, i) + dir2*x_trans;
+      float y_trans = y_p - floor(y_p);
+      float float_value = p1 + (p2-p1)*y_trans;
+      if (float_value < 0)
+      {
+        float_value = 0;
+      }
+      if (float_value > 255)
+      {
+        float_value = 255;
+      }
+      value = (uchar) float_value;
+
     }
-    value = (uchar) float_value;
+  }
+  if (interpolation == "bicubic")
+  {
+    if (i > 0 && j > 0 && i < src.cols  && j < src.rows )
+    {
+      float p1 = cubic_spline( Point(i-1, src.at<uchar>(j-1, i-1)), Point(i, src.at<uchar>(j-1, i)), Point(i+1, src.at<uchar>(j-1, i+1)), Point(i+2, src.at<uchar>(j-1, i+2)), x_p);
+      float p2 = cubic_spline( Point(i-1, src.at<uchar>(j, i-1)), Point(i, src.at<uchar>(j, i)), Point(i+1, src.at<uchar>(j, i+1)), Point(i+2, src.at<uchar>(j, i+2)), x_p);
+      float p3 = cubic_spline( Point(i-1, src.at<uchar>(j+1, i-1)), Point(i, src.at<uchar>(j+1, i)), Point(i+1, src.at<uchar>(j+1, i+1)), Point(i+2, src.at<uchar>(j+1, i+2)), x_p);
+      float p4 = cubic_spline( Point(i-1, src.at<uchar>(j+2, i-1)), Point(i, src.at<uchar>(j+2, i)), Point(i+1, src.at<uchar>(j+2, i+1)), Point(i+2, src.at<uchar>(j+2, i+2)), x_p);
+      float float_value = cubic_spline( Point(j-1, p1), Point(j, p2), Point(j+1, p3), Point(j+2, p4), y_p);
+      if (float_value < 0)
+      {
+        float_value = 0;
+      }
+      if (float_value > 255)
+      {
+        float_value = 255;
+      }
+      value = (uchar) float_value;
+    }
   }
   return value;
 }
 
 
-void fill_dst(float theta, Point center, Mat src, Mat dst)
+void fill_dst(float theta, Point center, Mat src, Mat dst, string interpolation )
 {
   for( int j = 0; j < src.rows; j++ )
     { for( int i = 0; i < src.cols; i++ )
        {
-         dst.at<uchar>(j,i) = calculate_pixel_value( i, j, theta, center, src );
+         dst.at<uchar>(j,i) = calculate_pixel_value( i, j, theta, center, src, interpolation );
        }
     }
 }
 
-int err(Mat diff)
+float err(Mat diff)
 { //returns the quadratic error
-    int sum = 0;
+    float sum = 0;
+    float norm = 0;
     for( int j = 0; j < diff.rows; j++ )
       { for( int i = 0; i < diff.cols; i++ )
          {
+             norm = norm + 255*255;
              sum = sum + (int)(diff.at<uchar>(j,i)*diff.at<uchar>(j,i));
          }
       }
-    return sum;
+    return ((float)(sum/norm));
 }
 
 

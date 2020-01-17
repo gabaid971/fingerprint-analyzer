@@ -18,16 +18,27 @@ int main()
   Point centroid = find_centroid( src ); // center of rotation
   float theta =  0.68912 ; // angle of rotation
   Mat dst;
+  cout << "Which type of interpolation do you want? (neighbor, bilinear, bicubic) " << endl;
+  string interpolation = "bicubic";
+  cin >> interpolation;
+  cout << "How many pairs of rotation do we do ? (1 already done)" << endl;
+  int number_of_rotations = 0;
+  cin >> number_of_rotations;
   dst.create( src.size(), src.type() );
-  fill_dst(theta, centroid, src, dst);
+  fill_dst(theta, centroid, src, dst, interpolation);
   Mat final;
   final.create( src.size(), src.type() );
-  fill_dst(-theta, centroid, dst, final);
+  fill_dst(-theta, centroid, dst, final, interpolation);
+  for (int i = 0; i < number_of_rotations; i++)
+  {
+    fill_dst(+theta, centroid, final, dst, interpolation);
+    fill_dst(-theta, centroid, dst, final, interpolation);
+  }
   Mat diff;
   subtract( src, final, diff);
-  int errora = err(diff);
-  cout << "the error is : " << errora << endl;
-  imshow( "remap", diff );
+  float errora = err(diff);
+  cout << "The error with this interpolation method is : " << errora << endl;
+  imshow( "remap", final );
   waitKey(0);
   return 0;
 }
