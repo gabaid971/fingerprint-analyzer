@@ -7,8 +7,8 @@ APP_DIR  := $(BUILD)/apps
 TARGET   := program
 LIBS     :=`pkg-config --cflags --libs opencv`
 INCLUDE  := -Iinclude/
-SRC      :=                      \
-   $(wildcard src/remap/*.cpp) \
+SRC      :=$(wildcard src/*.cpp)   \
+   $(wildcard src/maincourse1/*.cpp) \
 
 OBJECTS := $(SRC:%.cpp=$(OBJ_DIR)/%.o)
 

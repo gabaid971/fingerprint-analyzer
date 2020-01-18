@@ -1,4 +1,6 @@
 #include "remap.hpp"
+#include "error.hpp"
+#include "get_center_angle.hpp"
 
 #include <opencv2/core.hpp>
 #include <opencv2/imgproc.hpp>

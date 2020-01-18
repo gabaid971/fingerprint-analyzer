@@ -120,27 +120,3 @@ void fill_dst(float theta, Point center, Mat src, Mat dst, string interpolation 
        }
     }
 }
-
-float err(Mat diff)
-{ //returns the quadratic error
-    float sum = 0;
-    float norm = 0;
-    for( int j = 0; j < diff.rows; j++ )
-      { for( int i = 0; i < diff.cols; i++ )
-         {
-             norm = norm + 255*255;
-             sum = sum + (int)(diff.at<uchar>(j,i)*diff.at<uchar>(j,i));
-         }
-      }
-    return ((float)(sum/norm));
-}
-
-
-Point find_centroid(Mat src)
-{
-  Mat thr;
-  threshold( src, thr, 100, 255,THRESH_BINARY );
-  Moments m = moments(thr,true);
-  Point p(m.m10/m.m00, m.m01/m.m00);
-  return p;
-}

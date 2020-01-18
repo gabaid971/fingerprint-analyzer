@@ -1,4 +1,4 @@
-#include "starter2_1.hpp"
+#include "update_rotation.hpp"
 
 #include "opencv2/imgcodecs.hpp"
 #include "opencv2/highgui.hpp"
@@ -20,26 +20,4 @@ void update_map_rotation(float theta, Point center, Mat map_x, Mat map_y)
            map_y.at<float>(j,i) = (float)(-sin(theta)*i + cos(theta)*j + sin(theta)*center.x + (1-cos(theta))*center.y);
        }
     }
-}
-
-
-int err(Mat diff)
-{ //returns the quadratic error
-    int sum = 0;
-    for( int j = 0; j < diff.rows; j++ )
-      { for( int i = 0; i < diff.cols; i++ )
-         {
-             sum = sum + (int)(diff.at<uchar>(j,i)*diff.at<uchar>(j,i));
-         }
-      }
-    return sum;
-}
-
-
-Point find_centroid(Mat src){
-  Mat thr;
-  threshold( src, thr, 100, 255,THRESH_BINARY );
-  Moments m = moments(thr,true);
-  Point p(m.m10/m.m00, m.m01/m.m00);
-  return p;
 }

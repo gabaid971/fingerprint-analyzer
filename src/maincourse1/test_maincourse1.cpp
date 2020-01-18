@@ -1,4 +1,4 @@
-#include "maincourse1.hpp"
+#include "finger_pressure.hpp"
 
 #include "opencv2/imgcodecs.hpp"
 #include "opencv2/highgui.hpp"

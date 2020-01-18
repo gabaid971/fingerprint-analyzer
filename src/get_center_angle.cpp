@@ -1,34 +1,23 @@
-#include "starter2_2.hpp"
+#include "get_center_angle.hpp"
 
 #include "opencv2/imgcodecs.hpp"
 #include "opencv2/highgui.hpp"
 #include "opencv2/imgproc.hpp"
 #include <iostream>
 #include <math.h>
-using namespace cv;
-using namespace std;
 
-//we create the image source and the destination one:
-//Mat src, dst, thr, final, final2;
 
-/*
-float best_angle(Mat src, Mat obj, float theta, Point p)
-{
-    error = err( src, obj );
-    angle = 0;
-    for (size_t i = 0; i < 20; i++)
-    {
-      update_map_rotation(angle +i/100], p);
-      remap( src, dst, map_x, map_y, INTER_LINEAR , BORDER_CONSTANT, Scalar(255) );
-      if (difference_images(dst, obj) < error)
-      {
-        error = difference_images(dst, obj);
-        angle = i;
-      }
-    }
-    return angle;
+
+//find the center of rotation
+Point find_centroid(Mat src){
+  Mat thr;
+  threshold( src, thr, 100, 255,THRESH_BINARY );
+  Moments m = moments(thr,true);
+  Point p(m.m10/m.m00, m.m01/m.m00);
+  return p;
 }
-*/
+
+//find the angle of rotation
 
 Mat get_angle(Mat src, Mat dst, Mat thr, Mat final)
 {

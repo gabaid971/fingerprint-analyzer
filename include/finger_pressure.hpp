@@ -1,5 +1,5 @@
-#ifndef MAINCOURSE1_H
-#define MAINCOURSE1_H
+#ifndef FINGER_PRESSURE_H
+#define FINGER_PRESSURE_H
 
 
 #include "opencv2/imgcodecs.hpp"

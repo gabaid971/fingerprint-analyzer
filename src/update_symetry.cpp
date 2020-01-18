@@ -1,4 +1,4 @@
-#include "starter1_2.hpp"
+#include "update_symetry.hpp"
 
 #include "opencv2/imgcodecs.hpp"
 #include "opencv2/highgui.hpp"
@@ -7,7 +7,7 @@
 
 using namespace cv;
 
-void update_map(Mat src, Mat map_x, Mat map_y)
+void update_map_symetry(Mat src, Mat map_x, Mat map_y)
 {
   for( int j = 0; j < src.rows; j++ )
     { for( int i = 0; i < src.cols; i++ )

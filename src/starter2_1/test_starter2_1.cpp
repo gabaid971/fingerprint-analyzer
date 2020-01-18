@@ -1,4 +1,6 @@
-#include "starter2_1.hpp"
+#include "update_rotation.hpp"
+#include "error.hpp"
+#include "get_center_angle.hpp"
 
 #include "opencv2/imgcodecs.hpp"
 #include "opencv2/highgui.hpp"
@@ -27,7 +29,7 @@ int main()
   Point p = find_centroid( src ); //we find the center of the rotation
   namedWindow( remap_window, WINDOW_AUTOSIZE );
   update_map_rotation( theta, p, map_x, map_y ); //we do the rotation of angle theta and center p
-  remap( src, dst, map_x, map_y, INTER_AREA , BORDER_CONSTANT, Scalar(255) );
+  remap( src, dst, map_x, map_y, INTER_CUBIC , BORDER_CONSTANT, Scalar(255) );
   Mat final;
   final.create( src.size(), src.type() ); //we create the destination image
   Mat mapf_x, mapf_y;
@@ -38,9 +40,9 @@ int main()
   Mat diff;
   subtract( src, final, diff);
   // Display results
-  int error = err(diff);
+  float error = err(diff);
   imshow( remap_window, dst );
-  cout << "the error is: " << error << endl;
+  cout << "The error of the opencv remap function with bicubic interpolation is: " << error << endl;
   cout << "The centroid is: " << Mat(p) << endl;
   waitKey(0);
   return 0;
