@@ -11,7 +11,15 @@ using namespace std;
 
 
 cv::Point find_centroid(cv::Mat src);
-cv::Mat get_angle(cv::Mat src, cv::Mat dst, cv::Mat thr, cv::Mat final);
 
+cv::RotatedRect get_rectangle(cv::Mat src);
+
+cv::Mat get_image(cv::Mat src);
+
+cv::Point find_ellipse_center(cv::Mat src);
+
+float get_angle(cv::Mat src);
+
+cv::Size get_size(cv::Mat src);
 
 #endif

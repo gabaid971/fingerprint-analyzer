@@ -11,12 +11,17 @@ using namespace std;
 
 int main()
 {
-  Mat src, dst, thr, final;
-  src = imread( "images/warp1_finger.png", IMREAD_GRAYSCALE );
-  final = get_angle(src, dst, thr, final);
-  imshow( "Angle", final );
-  //int error = err(diff);
-  //cout << "the error is: " << error << endl;
+  //we calculate the angle and the center of our image
+  Mat src;
+  src = imread( "images/clean_finger.png", IMREAD_GRAYSCALE );
+  Mat final = get_image(src);
+  float angle = get_angle(src);
+  Point ellipse_center = find_ellipse_center(src);
+  Point centroid = find_centroid(src);
+  imshow( "Angle and center", final );
+  cout << "The centroid is: " << centroid << endl;
+  cout << "The center of the ellipse is: " << ellipse_center << endl;
+  cout << "The angle of the ellipse is: " << angle << endl;
   waitKey(0);
   return 0;
 }
