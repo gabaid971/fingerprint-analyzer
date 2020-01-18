@@ -22,8 +22,7 @@ int main()
   Point center = choose_center(center_type, src);
   Size rect_size = get_size(src);
   float alpha = (float)(rect_size.height)/(float)(rect_size.width);
-  cout << "hauteur" << rect_size.height << endl;
-  cout << "largeur" << rect_size.width << endl;
+  float r = 80;
   //imshow( "maincourse1", src);
   for( int j = 0; j < src.rows; j++ )
   {
@@ -32,7 +31,6 @@ int main()
          trans.at<uchar>(j,i) = (uchar)(255- src.at<uchar>(j,i));
     }
   }
-  float r = 80;
   //imshow( "maincourse1", trans );
   for( int j = 0; j < src.rows; j++ )
     { for( int i = 0; i < src.cols; i++ )
@@ -48,7 +46,7 @@ int main()
       }
     }
   // Display results
-  imshow( "maincourse1", last );
+  imshow( "Finger pressure", last );
   waitKey(0);
   return 0;
 }

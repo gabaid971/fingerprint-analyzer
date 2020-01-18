@@ -20,8 +20,10 @@ int main()
   //and the mapping:
   Mat map_x, map_y;
   const char* remap_window = "Rotation demo";
+  cout << "Choose the angle of rotation in radians" << endl;
   // angle of rotation in radians
   float theta = -0.68912; //(angle_1(deg)- angle_2(deg))/M_PI
+  cin >> theta;
   src = imread( "images/fingerprint.jpg", IMREAD_GRAYSCALE );
   dst.create( src.size(), src.type() ); //we create the destination image
   map_x.create( src.size(), CV_32FC1 );
