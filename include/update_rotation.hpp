@@ -6,6 +6,6 @@
 #include "opencv2/imgproc.hpp"
 #include <iostream>
 
-void update_map_rotation(float theta, cv::Point center, cv::Mat map_x, cv::Mat map_y);
+void update_map_rotation(cv::Mat map_x, cv::Mat map_y, cv::Point center, float theta);
 
 #endif

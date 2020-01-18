@@ -19,7 +19,6 @@ int main()
   Mat src, dst;
   //and the mapping:
   Mat map_x, map_y;
-  const char* remap_window = "Rotation demo";
   cout << "Choose the angle of rotation in radians" << endl;
   // angle of rotation in radians
   float theta = -0.68912; //(angle_1(deg)- angle_2(deg))/M_PI
@@ -29,21 +28,20 @@ int main()
   map_x.create( src.size(), CV_32FC1 );
   map_y.create( src.size(), CV_32FC1 );
   Point p = find_centroid( src ); //we find the center of the rotation
-  namedWindow( remap_window, WINDOW_AUTOSIZE );
-  update_map_rotation( theta, p, map_x, map_y ); //we do the rotation of angle theta and center p
+  update_map_rotation( map_x, map_y, p, theta ); //we do the rotation of angle theta and center p
   remap( src, dst, map_x, map_y, INTER_CUBIC , BORDER_CONSTANT, Scalar(255) );
   Mat final;
   final.create( src.size(), src.type() ); //we create the destination image
   Mat mapf_x, mapf_y;
   mapf_x.create( src.size(), CV_32FC1 );
   mapf_y.create( src.size(), CV_32FC1 );
-  update_map_rotation( -theta, p, mapf_x, mapf_y ); //we do the rotation of angle theta and center p
+  update_map_rotation( mapf_x, mapf_y, p, -theta ); //we do the rotation of angle theta and center p
   remap( dst, final, mapf_x, mapf_y, INTER_CUBIC , BORDER_CONSTANT, Scalar(255) );
   Mat diff;
   subtract( src, final, diff);
   // Display results
   float error = err(diff);
-  imshow( remap_window, dst );
+  imshow( "Rotation with opencv", dst );
   cout << "The error of the opencv remap function with bicubic interpolation is: " << error << endl;
   cout << "The centroid is: " << Mat(p) << endl;
   waitKey(0);

@@ -1,4 +1,6 @@
 #include "error.hpp"
+#include "update_rotation.hpp"
+#include "update_translation.hpp"
 
 #include <opencv2/core.hpp>
 #include <opencv2/imgproc.hpp>
@@ -25,19 +27,19 @@ float err(Mat diff)
 }
 
 /*
- float best_angle(Mat src, Mat obj, float theta, Point p)
+ float best_translation(Mat src, Mat obj, Point p)
 {
-    error = err( src, obj );
-    angle = 0;
-    for (size_t i = 0; i < 20; i++)
+    subtract(src, obj, diff);
+    error = err( diff );
+    for (size_t i = -src.cols; i < src.cols; i++)
     {
-      update_map_rotation(angle +i/100], p);
+      update_map_translation(map_x, map_y, i);
       remap( src, dst, map_x, map_y, INTER_LINEAR , BORDER_CONSTANT, Scalar(255) );
-      if (difference_images(dst, obj) < error)
+      subtract(dst, obj, diff)
+      if ( err( diff )< error)
       {
-        error = difference_images(dst, obj);
-        angle = i;
+        error = err( diff);
       }
     }
-    return angle;
+    return error;
 }*/

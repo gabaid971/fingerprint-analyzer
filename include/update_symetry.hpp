@@ -6,6 +6,6 @@
 #include "opencv2/imgproc.hpp"
 #include <iostream>
 
-void update_map_symetry(cv::Mat src, cv::Mat map_x, cv::Mat map_y);
+void update_map_symetry(cv::Mat map_x, cv::Mat map_y);
 
 #endif
