@@ -26,20 +26,93 @@ float err(Mat diff)
     return ((float)(sum/norm));
 }
 
-/*
- float best_translation(Mat src, Mat obj, Point p)
+
+float best_translation(Mat src, Mat obj)
 {
-    subtract(src, obj, diff);
-    error = err( diff );
-    for (size_t i = -src.cols; i < src.cols; i++)
+  Mat diff;
+  subtract(src, obj, diff);
+  float error = err( diff );
+  int indice = 0;
+  for (int i = -src.cols; i < src.cols; i++)
+  {
+    Mat map_x, map_y, dst;
+    map_x.create( src.size(), CV_32FC1 );
+    map_y.create( src.size(), CV_32FC1 );
+    update_map_translation_x(map_x, map_y, i);
+    remap( src, dst, map_x, map_y, INTER_CUBIC , BORDER_CONSTANT, Scalar(255) );
+    subtract(dst, obj, diff);
+    float new_error = err(diff);
+    if ( new_error < error)
     {
-      update_map_translation(map_x, map_y, i);
-      remap( src, dst, map_x, map_y, INTER_LINEAR , BORDER_CONSTANT, Scalar(255) );
-      subtract(dst, obj, diff)
-      if ( err( diff )< error)
-      {
-        error = err( diff);
-      }
+      error = new_error;
+      indice = i;
     }
-    return error;
-}*/
+  }
+  return indice;
+}
+
+float translation_max_error(Mat src, Mat obj)
+{
+  Mat diff;
+  subtract(src, obj, diff);
+  float error = err( diff );
+  for (int i = -src.cols; i < src.cols; i++)
+  {
+    Mat map_x, map_y, dst;
+    map_x.create( src.size(), CV_32FC1 );
+    map_y.create( src.size(), CV_32FC1 );
+    update_map_translation_x(map_x, map_y, i);
+    remap( src, dst, map_x, map_y, INTER_CUBIC , BORDER_CONSTANT, Scalar(255) );
+    subtract(dst, obj, diff);
+    float new_error = err(diff);
+    if ( new_error > error)
+    {
+      error = new_error;
+    }
+  }
+  return error;
+}
+
+
+float translation_min_error(Mat src, Mat obj)
+{
+  Mat diff;
+  subtract(src, obj, diff);
+  float error = err( diff );
+  for (int i = -src.cols; i < src.cols; i++)
+  {
+    Mat map_x, map_y, dst;
+    map_x.create( src.size(), CV_32FC1 );
+    map_y.create( src.size(), CV_32FC1 );
+    update_map_translation_x(map_x, map_y, i);
+    remap( src, dst, map_x, map_y, INTER_CUBIC , BORDER_CONSTANT, Scalar(255) );
+    subtract(dst, obj, diff);
+    float new_error = err(diff);
+    if ( new_error < error)
+    {
+      error = new_error;
+    }
+  }
+  return error;
+}
+
+
+void draw_translation(Mat src, Mat obj, Mat draw)
+{
+  Mat diff;
+  for (int i = -src.cols; i < src.cols; i++)
+  {
+    Mat map_x, map_y, dst;
+    map_x.create( src.size(), CV_32FC1 );
+    map_y.create( src.size(), CV_32FC1 );
+    update_map_translation_x(map_x, map_y, i);
+    remap( src, dst, map_x, map_y, INTER_CUBIC , BORDER_CONSTANT, Scalar(255) );
+    subtract(dst, obj, diff);
+    float new_error = err(diff);
+    int point = (int)(new_error*10000);
+    if (point < draw.rows)
+    {
+      draw.at<uchar>(point , (int)(src.cols+i)) = 0;
+    }
+  }
+}

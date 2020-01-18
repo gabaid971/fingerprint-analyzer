@@ -6,8 +6,8 @@
 #include "opencv2/imgproc.hpp"
 #include <iostream>
 
-void update_map_translation_x(cv::Mat map_x, cv::Mat map_y, size_t px);
-void update_map_translation_y(cv::Mat map_x, cv::Mat map_y, size_t py);
-void update_map_translation_xy(cv::Mat map_x, cv::Mat map_y, int px, size_t py);
+void update_map_translation_x(cv::Mat map_x, cv::Mat map_y, int px);
+void update_map_translation_y(cv::Mat map_x, cv::Mat map_y, int py);
+void update_map_translation_xy(cv::Mat map_x, cv::Mat map_y, int px, int py);
 
 #endif

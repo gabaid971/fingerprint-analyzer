@@ -7,7 +7,7 @@
 
 using namespace cv;
 
-void update_map_translation_x(Mat map_x, Mat map_y, size_t px)
+void update_map_translation_x(Mat map_x, Mat map_y, int px)
 {
   for( int j = 0; j < map_x.rows; j++ )
   {
@@ -19,7 +19,7 @@ void update_map_translation_x(Mat map_x, Mat map_y, size_t px)
   }
 }
 
-void update_map_translation_y(Mat map_x, Mat map_y, size_t py)
+void update_map_translation_y(Mat map_x, Mat map_y, int py)
 {
   for( int j = 0; j < map_x.rows; j++ )
   {
@@ -31,7 +31,7 @@ void update_map_translation_y(Mat map_x, Mat map_y, size_t py)
   }
 }
 
-void update_map_translation_xy(Mat map_x, Mat map_y, int px, size_t py)
+void update_map_translation_xy(Mat map_x, Mat map_y, int px, int py)
 {
   for( int j = 0; j < map_x.rows; j++ )
   {
