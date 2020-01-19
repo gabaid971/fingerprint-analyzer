@@ -20,7 +20,7 @@ int main()
     cout << "Le min de l'erreur vaut: " << min_error << endl;
     cout << "Le max de l'erreur vaut: " << max_error << endl;
     cout << "L'indice vaut: " << indice << endl;
-    Mat draw(100000, 2*src.cols, CV_8UC1, Scalar(255));
+    Mat draw(1000, 2*src.cols, CV_8UC1, Scalar(255));
     draw_translation(src, obj, draw);
     imshow( "Display window", draw );
     waitKey(0);

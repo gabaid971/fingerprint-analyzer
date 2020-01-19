@@ -99,6 +99,7 @@ float translation_min_error(Mat src, Mat obj)
 
 void draw_translation(Mat src, Mat obj, Mat draw)
 {
+  vector<Point> imagePoints;
   Mat diff;
   for (int i = -src.cols; i < src.cols; i++)
   {
@@ -112,7 +113,8 @@ void draw_translation(Mat src, Mat obj, Mat draw)
     int point = (int)(new_error*10000);
     if (point < draw.rows)
     {
-      draw.at<uchar>(point , (int)(src.cols+i)) = 0;
+      imagePoints.push_back(Point((int)(src.cols+i), point));
     }
   }
+  polylines(draw, imagePoints, 0, Scalar(0));
 }
