@@ -7,13 +7,14 @@
 
 using namespace cv;
 
-void update_map_symetry(Mat src, Mat map_x, Mat map_y)
+void update_map_symetry(Mat map_x, Mat map_y)
 {
-  for( int j = 0; j < src.rows; j++ )
-    { for( int i = 0; i < src.cols; i++ )
-     {
-         map_x.at<float>(j,i) = (float)(src.cols - i) ;
-         map_y.at<float>(j,i) = (float) j ;
-     }
+for( int j = 0; j < map_x.rows; j++ )
+  {
+  for( int i = 0; i < map_x.cols; i++ )
+    {
+      map_x.at<float>(j,i) = (float)(map_x.cols - i) ;
+      map_y.at<float>(j,i) = (float) j ;
     }
+  }
 }

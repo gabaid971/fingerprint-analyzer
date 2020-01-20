@@ -23,21 +23,3 @@ float err(Mat diff)
       }
     return ((float)(sum/norm));
 }
-
-/*
- float best_angle(Mat src, Mat obj, float theta, Point p)
-{
-    error = err( src, obj );
-    angle = 0;
-    for (size_t i = 0; i < 20; i++)
-    {
-      update_map_rotation(angle +i/100], p);
-      remap( src, dst, map_x, map_y, INTER_LINEAR , BORDER_CONSTANT, Scalar(255) );
-      if (difference_images(dst, obj) < error)
-      {
-        error = difference_images(dst, obj);
-        angle = i;
-      }
-    }
-    return angle;
-}*/

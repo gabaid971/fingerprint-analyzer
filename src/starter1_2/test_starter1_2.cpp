@@ -20,7 +20,7 @@ int main()
   map_y.create( src.size(), CV_32FC1 );
   namedWindow( remap_window, WINDOW_AUTOSIZE );
 
-  update_map_symetry(src, map_x, map_y);
+  update_map_symetry(map_x, map_y);
   remap( src, dst, map_x, map_y, INTER_LINEAR, BORDER_CONSTANT, Scalar(255) );
   // Display results
   imshow( remap_window, dst );

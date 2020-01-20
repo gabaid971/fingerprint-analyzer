@@ -11,7 +11,7 @@ using namespace cv;
 using namespace std;
 
 
-void update_map_rotation(float theta, Point center, Mat map_x, Mat map_y)
+void update_map_rotation(Mat map_x, Mat map_y, Point center, float theta)
 {
   for( int j = 0; j < map_x.rows; j++ )
     { for( int i = 0; i < map_x.cols; i++ )

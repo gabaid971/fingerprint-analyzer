@@ -24,7 +24,6 @@ int main()
            LINE_8);
     namedWindow( "Display window", WINDOW_AUTOSIZE ); // Create a window for display.
     imshow( "Display window", image );                // Show our image inside it.
-    //cout << (int)image.at<uchar>(311,420) << endl;
     waitKey(0); // Wait for a keystroke in the window
     imwrite( "modifie.png", image );
     return 0;
