@@ -8,12 +8,4 @@
 
 float err(cv::Mat diff);
 
-float best_translation(cv::Mat src, cv::Mat obj);
-
-float translation_min_error(cv::Mat src, cv::Mat obj);
-
-float translation_max_error(cv::Mat src, cv::Mat obj);
-
-void draw_translation(cv::Mat src, cv::Mat obj, cv::Mat draw);
-
 #endif
