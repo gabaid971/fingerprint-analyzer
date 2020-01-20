@@ -20,7 +20,8 @@ int main()
     vector<int> indices = best_translation_xy(src, obj);
     //cout << "Le min de l'erreur vaut: " << min_error << endl;
     //cout << "Le max de l'erreur vaut: " << max_error << endl;
-    cout << "L'indice vaut: " << indices[0] << endl;
+    cout << "L'indice selon x vaut: " << indices[0] << endl;
+    cout << "L'indice selon y vaut: " << indices[1] << endl;
     //Mat draw(1000, 2*src.cols, CV_8UC1, Scalar(255));
     //draw_translation(src, obj, draw);
     imshow( "Display window", obj );

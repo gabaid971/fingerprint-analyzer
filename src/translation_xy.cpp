@@ -15,7 +15,7 @@ using namespace std;
 
 vector<int> best_translation_xy(Mat src, Mat obj)
 {
-  vector<int> indices(0,0);
+  vector<int> indices(2);
   Mat diff;
   subtract(src, obj, diff);
   float error = err( diff );
@@ -27,7 +27,7 @@ vector<int> best_translation_xy(Mat src, Mat obj)
       map_x.create( src.size(), CV_32FC1 );
       map_y.create( src.size(), CV_32FC1 );
       update_map_translation_xy(map_x, map_y, i, j);
-      remap( src, dst, map_x, map_y, INTER_CUBIC , BORDER_CONSTANT, Scalar(255) );
+      remap( src, dst, map_x, map_y, INTER_NEAREST , BORDER_CONSTANT, Scalar(255) );
       subtract(dst, obj, diff);
       float new_error = err(diff);
       if ( new_error < error)

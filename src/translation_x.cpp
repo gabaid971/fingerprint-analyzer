@@ -37,6 +37,7 @@ int best_translation(Mat src, Mat obj)
   return indice;
 }
 
+
 float translation_max_error(Mat src, Mat obj)
 {
   Mat diff;
