@@ -75,31 +75,28 @@ bool check_4(Mat src, int i, int j, bool state )
 int main()
 {
   Mat src;
-  src = imread( "images/clean_finger.png", IMREAD_GRAYSCALE );
+  src = imread( "images/rectangle.png", IMREAD_GRAYSCALE );
   threshold(src, src, 127, 255, THRESH_BINARY);
-  for (int k = 1; k < 3; k++ )
+  for (int i = 1; i < src.cols - 1 ; i++)
+  {
+    for (int j = 1 ; j < src.rows - 1; j++)
     {
-    for (int i = 1; i < src.cols - 1 ; i++)
-    {
-      for (int j = 1 ; j < src.rows - 1; j++)
+      if (src.at<uchar>(j,i) == 0)
       {
-        if (src.at<uchar>(j,i) == 0)
-        {
-          if (check_1(src, i, j) && check_2_bis(src, i, j) && check_3(src, i, j, 1) && check_4(src, i, j, 1) ){
-            src.at<uchar>(j,i) = 255;
-          }
+        if (check_1(src, i, j) && check_2(src, i, j) && check_3(src, i, j, 1) && check_4(src, i, j, 1) ){
+          src.at<uchar>(j,i) = 255;
         }
       }
     }
-    for (int i = 1; i < src.cols - 1 ; i++)
+  }
+  for (int i = 1; i < src.cols - 1 ; i++)
+  {
+    for (int j = 1 ; j < src.rows - 1; j++)
     {
-      for (int j = 1 ; j < src.rows - 1; j++)
+      if (src.at<uchar>(j,i) == 0)
       {
-        if (src.at<uchar>(j,i) == 0)
-        {
-          if (check_1(src, i, j) && check_2_bis(src, i, j) && check_3(src, i, j, 0) && check_4(src, i, j, 0) ){
-            src.at<uchar>(j,i) = 255;
-          }
+        if (check_1(src, i, j) && check_2(src, i, j) && check_3(src, i, j, 0) && check_4(src, i, j, 0) ){
+          src.at<uchar>(j,i) = 255;
         }
       }
     }

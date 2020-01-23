@@ -68,7 +68,7 @@ Mat one_step(Mat src, bool state)
 int main()
 {
   Mat src;
-  src = imread( "images/clean_finger.png", IMREAD_GRAYSCALE );
+  src = imread( "images/rectangle.png", IMREAD_GRAYSCALE );
   threshold(src, src, 127, 255, THRESH_BINARY);
   for (size_t i = 0; i < 100; i++) {
     src = one_step(src, 0);
