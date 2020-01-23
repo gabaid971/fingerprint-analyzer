@@ -10,8 +10,7 @@ using namespace cv;
 using namespace std;
 
 int main()
-{   /* this function only use opencv functions.
-    we just add a black rectangle on a fingreprint picture */
+{   /* opti for translation along x axis */
     Mat src, obj;
     src = imread( "images/clean_finger.png", IMREAD_GRAYSCALE);
     obj = imread( "images/tx_finger.png", IMREAD_GRAYSCALE);
