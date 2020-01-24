@@ -51,7 +51,7 @@ Mat one_step(Mat src, bool state)
 {
   for (int i = 1; i < src.cols - 1 ; i++)
   {
-    for (int j = 1 + state -(i%2) ; j < src.rows - 3; j++)
+    for (int j = 1 ; j < src.rows - 1; j++)
     {
       if (src.at<uchar>(j,i) == 0)
       {
@@ -70,9 +70,9 @@ int main()
   Mat src;
   src = imread( "images/rectangle.png", IMREAD_GRAYSCALE );
   threshold(src, src, 127, 255, THRESH_BINARY);
-  for (size_t i = 0; i < 100; i++) {
-    src = one_step(src, 0);
+  for (size_t i = 0; i < 10; i++) {
     src = one_step(src, 1);
+    src = one_step(src, 0);
   }
 
   imshow( "YOUPI", src );

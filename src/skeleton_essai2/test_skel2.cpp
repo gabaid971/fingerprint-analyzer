@@ -14,15 +14,18 @@ bool ctb(Mat src, int i, int j )
 }
 
 
-bool check_1(Mat src, int i, int j )
+int connect_number(Mat src, int i, int j)
 {
-  int x = !ctb(src, i-1, j-1) && (ctb( src, i, j-1 ) || ctb( src, i+1 , j-1 ));
-  x += !ctb(src, i+1, j-1) && (ctb( src, i+1, j ) || ctb( src, i+1 , j+1 ));
-  x += !ctb(src, i+1, j+1) && (ctb( src, i, j+1 ) || ctb( src, i-1 , j+1 ));
-  x += !ctb(src, i-1, j+1) && (ctb( src, i-1, j ) || ctb( src, i-1 , j-1 ));
-  return x == 1;
+  int connect_number = abs(ctb(src, i-1 , j-1) - ctb(src, i , j-1)) + abs(ctb(src, i , j-1) - ctb(src, i+1 , j-1)) + abs(ctb(src, i+1 , j-1) - ctb(src, i+1 , j));
+  connect_number +=  abs(ctb(src, i+1 , j) - ctb(src, i+1 , j+1)) + abs(ctb(src, i+1 , j+1) - ctb(src, i , j+1)) + abs(ctb(src, i , j+1) - ctb(src, i-1 , j+1));
+  connect_number += abs(ctb(src, i-1 , j+1) - ctb(src, i-1 , j)) + abs(ctb(src, i-1 , j) - ctb(src, i-1 , j-1));
+  return  connect_number;
 }
 
+bool check_1(Mat src, int i, int j)
+{
+  return connect_number(src, i ,j)/2 == 1;
+}
 
 bool check_2(Mat src, int i, int j )
 {
@@ -47,7 +50,7 @@ int number_of_neigh(Mat src, int i, int j)
       nb += ctb(src, k , l);
     }
   }
-  return nb;
+  return (nb-1);
 }
 
 
@@ -56,50 +59,60 @@ bool check_2_bis(Mat src, int i, int j )
   return (number_of_neigh(src, i,  j)>= 2 && number_of_neigh(src, i, j)<= 6);
 }
 
-
+/*
 bool check_3(Mat src, int i, int j, bool state )
 {
   if (state)
-  return !ctb(src, i, j+1) || !ctb(src, i-1, j) || !ctb(src, i, j-1);
-  return !ctb(src, i-1, j) || !ctb(src, i, j+1) || !ctb(src, i+1, j);
+  return !ctb(src, i, j+1) || ( !ctb(src, i-1, j) || !ctb(src, i, j-1) );
+  return !ctb(src, i-1, j) || ( !ctb(src, i, j+1) || !ctb(src, i+1, j) );
 }
 
 bool check_4(Mat src, int i, int j, bool state )
 {
   if (state)
-  return !ctb(src, i-1, j) || !ctb(src, i+1, j) || !ctb(src, i, j-1);
+  return !ctb(src, i-1, j) || ( !ctb(src, i+1, j) || !ctb(src, i, j-1) );
+  return !ctb(src, i, j+1) || ( !ctb(src, i+1, j) || !ctb(src, i, j-1) );
+}
+*/
+
+bool check_3(Mat src, int i, int j, bool state )
+{
+  if (state)
   return !ctb(src, i, j+1) || !ctb(src, i+1, j) || !ctb(src, i, j-1);
+  return !ctb(src, i-1, j) || !ctb(src, i+1, j) || !ctb(src, i, j-1);
 }
 
-
-int main()
+bool check_4(Mat src, int i, int j, bool state )
 {
-  Mat src;
-  src = imread( "images/rectangle.png", IMREAD_GRAYSCALE );
-  threshold(src, src, 127, 255, THRESH_BINARY);
+  if (state)
+  return !ctb(src, i-1, j) || ( !ctb(src, i+1, j) || !ctb(src, i, j+1) );
+  return !ctb(src, i, j-1) || ( !ctb(src, i-1, j) || !ctb(src, i, j+1) );
+}
+
+void step(Mat src, bool state)
+{
   for (int i = 1; i < src.cols - 1 ; i++)
   {
     for (int j = 1 ; j < src.rows - 1; j++)
     {
       if (src.at<uchar>(j,i) == 0)
       {
-        if (check_1(src, i, j) && check_2(src, i, j) && check_3(src, i, j, 1) && check_4(src, i, j, 1) ){
+        if (check_1(src, i, j) && check_2_bis(src, i, j) && check_3(src, i, j, state) && check_4(src, i, j, state) ){
           src.at<uchar>(j,i) = 255;
         }
       }
     }
   }
-  for (int i = 1; i < src.cols - 1 ; i++)
+}
+int main()
+{
+  Mat src;
+  src = imread( "images/clean_finger.png", IMREAD_GRAYSCALE );
+  threshold(src, src, 127, 255, THRESH_BINARY);
+  for (int l = 1; l < 130; l++ )
   {
-    for (int j = 1 ; j < src.rows - 1; j++)
-    {
-      if (src.at<uchar>(j,i) == 0)
-      {
-        if (check_1(src, i, j) && check_2(src, i, j) && check_3(src, i, j, 0) && check_4(src, i, j, 0) ){
-          src.at<uchar>(j,i) = 255;
-        }
-      }
-    }
+    step(src, 1);
+    step(src, 0);
   }
   imshow( "jenaimarre", src );
   waitKey(0);
