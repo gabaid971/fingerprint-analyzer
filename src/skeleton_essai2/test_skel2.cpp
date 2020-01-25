@@ -103,7 +103,7 @@ int main()
 {
   //cout << test_connect_nb() << endl;
   Mat src;
-  src = imread( "images/london.png", IMREAD_GRAYSCALE );
+  src = imread( "images/try.png", IMREAD_GRAYSCALE );
   threshold(src, src, 127, 255, THRESH_BINARY);
   for (int l = 1; l < 100; l++ )
   {
