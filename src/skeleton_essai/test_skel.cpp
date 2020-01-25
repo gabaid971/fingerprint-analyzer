@@ -47,7 +47,7 @@ bool check_3(Mat src, int i, int j, bool state )
 
 
 
-Mat one_step(Mat src, bool state)
+vector<Point> step(Mat src, bool state, vector<Point> to_erase)
 {
   for (int i = 1; i < src.cols - 1 ; i++)
   {
@@ -56,26 +56,51 @@ Mat one_step(Mat src, bool state)
       if (src.at<uchar>(j,i) == 0)
       {
         if (check_1(src, i, j) && check_2(src, i, j) && check_3(src, i, j, state)){
-          src.at<uchar>(j,i) = 255;
+          to_erase.push_back(Point(i,j));
         }
       }
     }
   }
-  return src;
+  return to_erase;
 }
 
+float mean_grey(Mat src)
+{
+  float sum = 0;
+  for (int i = 0; i < src.cols  ; i++)
+  {
+    for (int j = 0 ; j < src.rows ; j++)
+    {
+      sum += (float)src.at<uchar>(j,i);
+    }
+  }
+  return sum/(src.cols*src.rows);
+}
 
 int main()
 {
   Mat src;
-  src = imread( "images/rectangle.png", IMREAD_GRAYSCALE );
-  threshold(src, src, 127, 255, THRESH_BINARY);
-  for (size_t i = 0; i < 10; i++) {
-    src = one_step(src, 1);
-    src = one_step(src, 0);
-  }
-
+  src = imread( "images/clean_finger.png", IMREAD_GRAYSCALE );
+  cout << "the mean is: " << mean_grey(src) << endl;
+  threshold(src, src, 80, 255, THRESH_BINARY);
   imshow( "YOUPI", src );
   waitKey(0);
+  for (int l = 1; l < 100; l++ )
+  {
+    vector<Point> to_erase;
+    to_erase = step(src, 1, to_erase);
+    for (unsigned int i = 0; i < to_erase.size(); i++)
+    {
+      src.at<uchar>(to_erase[i].y, to_erase[i].x) = 255;
+    }
+    to_erase = step(src, 0, to_erase);
+    for (unsigned int i = 0; i < to_erase.size(); i++)
+    {
+      src.at<uchar>(to_erase[i].y, to_erase[i].x) = 255;
+    }
+  }
+  imshow( "YOUPI", src );
+  waitKey(0);
+  //imwrite("warp1_skel1.png", src);
   return 0;
 }

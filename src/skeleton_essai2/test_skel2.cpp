@@ -8,6 +8,7 @@
 using namespace cv;
 using namespace std;
 
+
 bool ctb(Mat src, int i, int j )
 {
   return src.at<uchar>(j,i) == 0;
@@ -19,26 +20,14 @@ int connect_number(Mat src, int i, int j)
   int connect_number = abs(ctb(src, i-1 , j-1) - ctb(src, i , j-1)) + abs(ctb(src, i , j-1) - ctb(src, i+1 , j-1)) + abs(ctb(src, i+1 , j-1) - ctb(src, i+1 , j));
   connect_number +=  abs(ctb(src, i+1 , j) - ctb(src, i+1 , j+1)) + abs(ctb(src, i+1 , j+1) - ctb(src, i , j+1)) + abs(ctb(src, i , j+1) - ctb(src, i-1 , j+1));
   connect_number += abs(ctb(src, i-1 , j+1) - ctb(src, i-1 , j)) + abs(ctb(src, i-1 , j) - ctb(src, i-1 , j-1));
-  return  connect_number;
+  return connect_number/2;
 }
 
 bool check_1(Mat src, int i, int j)
 {
-  return connect_number(src, i ,j)/2 == 1;
+  return connect_number(src, i ,j) == 1;
 }
 
-bool check_2(Mat src, int i, int j )
-{
-  int n1 = ctb(src, i-1, j-1)  || ctb( src, i , j-1 );
-  n1 += ctb(src, i+1, j-1)  || ctb( src, i+1 , j);
-  n1 += ctb(src, i+1, j+1)  || ctb( src, i , j+1 );
-  n1 += ctb(src, i-1, j+1)  || ctb( src, i-1 , j );
-  int n2 = ctb(src, i, j-1)  || ctb( src, i+1 , j-1 );
-  n2 += ctb(src, i+1, j)  || ctb( src, i+1 , j+1 );
-  n2 += ctb(src, i, j+1)  || ctb( src, i-1 , j+1 );
-  n2 += ctb(src, i-1, j)  || ctb( src, i-1 , j-1 );
-  return n1<n2 ? (n1 == 2 || n1 == 3):(n2 == 2 || n2 == 3);
-}
 
 int number_of_neigh(Mat src, int i, int j)
 {
@@ -50,46 +39,33 @@ int number_of_neigh(Mat src, int i, int j)
       nb += ctb(src, k , l);
     }
   }
-  return (nb-1);
+  return nb-1;
 }
 
 
-bool check_2_bis(Mat src, int i, int j )
+bool check_2(Mat src, int i, int j )
 {
-  return (number_of_neigh(src, i,  j)>= 2 && number_of_neigh(src, i, j)<= 6);
+  return (number_of_neigh(src, i,  j) >= 2 && number_of_neigh(src, i, j) <= 6);
 }
 
-/*
-bool check_3(Mat src, int i, int j, bool state )
-{
-  if (state)
-  return !ctb(src, i, j+1) || ( !ctb(src, i-1, j) || !ctb(src, i, j-1) );
-  return !ctb(src, i-1, j) || ( !ctb(src, i, j+1) || !ctb(src, i+1, j) );
-}
-
-bool check_4(Mat src, int i, int j, bool state )
-{
-  if (state)
-  return !ctb(src, i-1, j) || ( !ctb(src, i+1, j) || !ctb(src, i, j-1) );
-  return !ctb(src, i, j+1) || ( !ctb(src, i+1, j) || !ctb(src, i, j-1) );
-}
-*/
 
 bool check_3(Mat src, int i, int j, bool state )
 {
   if (state)
-  return !ctb(src, i, j+1) || !ctb(src, i+1, j) || !ctb(src, i, j-1);
-  return !ctb(src, i-1, j) || !ctb(src, i+1, j) || !ctb(src, i, j-1);
+  return !(ctb(src, i, j+1) && ctb(src, i+1, j) && ctb(src, i, j-1));
+  return !(ctb(src, i-1, j) && ctb(src, i+1, j) && ctb(src, i, j-1));
 }
+
 
 bool check_4(Mat src, int i, int j, bool state )
 {
   if (state)
-  return !ctb(src, i-1, j) || ( !ctb(src, i+1, j) || !ctb(src, i, j+1) );
-  return !ctb(src, i, j-1) || ( !ctb(src, i-1, j) || !ctb(src, i, j+1) );
+  return !(ctb(src, i-1, j) && ctb(src, i+1, j) && ctb(src, i, j+1));
+  return !(ctb(src, i, j-1) && ctb(src, i-1, j) && ctb(src, i, j+1));
 }
 
-void step(Mat src, bool state)
+
+vector<Point> step(Mat src, bool state, vector<Point> to_erase)
 {
   for (int i = 1; i < src.cols - 1 ; i++)
   {
@@ -97,24 +73,54 @@ void step(Mat src, bool state)
     {
       if (src.at<uchar>(j,i) == 0)
       {
-        if (check_1(src, i, j) && check_2_bis(src, i, j) && check_3(src, i, j, state) && check_4(src, i, j, state) ){
-          src.at<uchar>(j,i) = 255;
+        if (check_1(src, i, j) && check_2(src, i, j) && check_3(src, i, j, state) && check_4(src, i, j, state) ){
+          to_erase.push_back(Point(i,j));
         }
       }
     }
   }
+  return to_erase;
 }
-int main()
+
+
+int test_connect_nb()
 {
   Mat src;
-  src = imread( "images/clean_finger.png", IMREAD_GRAYSCALE );
+  src.create( Size(3,3), 0);
+  src.at<uchar>(0,0) = 0;
+  src.at<uchar>(0,1) = 0;
+  src.at<uchar>(0,2) = 0;
+  src.at<uchar>(1,0) = 255;
+  src.at<uchar>(1,1) = 0;
+  src.at<uchar>(1,2) = 255;
+  src.at<uchar>(2,0) = 0;
+  src.at<uchar>(2,1) = 0;
+  src.at<uchar>(2,2) = 0;
+  return number_of_neigh(src, 1, 1);
+}
+
+int main()
+{
+  //cout << test_connect_nb() << endl;
+  Mat src;
+  src = imread( "images/london.png", IMREAD_GRAYSCALE );
   threshold(src, src, 127, 255, THRESH_BINARY);
-  for (int l = 1; l < 130; l++ )
+  for (int l = 1; l < 100; l++ )
   {
-    step(src, 1);
-    step(src, 0);
+    vector<Point> to_erase;
+    to_erase = step(src, 1, to_erase);
+    for (unsigned int i = 0; i < to_erase.size(); i++)
+    {
+      src.at<uchar>(to_erase[i].y, to_erase[i].x) = 255;
+    }
+    to_erase = step(src, 0, to_erase);
+    for (unsigned int i = 0; i < to_erase.size(); i++)
+    {
+      src.at<uchar>(to_erase[i].y, to_erase[i].x) = 255;
+    }
   }
   imshow( "jenaimarre", src );
   waitKey(0);
+  //imwrite("clean_skel.png", src);
   return 0;
 }
