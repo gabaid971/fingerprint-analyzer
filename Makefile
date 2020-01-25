@@ -8,7 +8,7 @@ TARGET   := program
 LIBS     :=`pkg-config --cflags --libs opencv`
 INCLUDE  := -Iinclude/
 SRC      :=$(wildcard src/*.cpp)   \
-   $(wildcard src/skeleton_essai/*.cpp) \
+   $(wildcard src/skeleton/*.cpp) \
 
 OBJECTS := $(SRC:%.cpp=$(OBJ_DIR)/%.o)
 
