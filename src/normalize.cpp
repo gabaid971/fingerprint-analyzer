@@ -24,6 +24,7 @@ float mean_grey(Mat src)
   return sum/(src.cols*src.rows);
 }
 
+
 float var_grey(Mat src)
 {
   float sum = 0;
@@ -37,6 +38,7 @@ float var_grey(Mat src)
   }
   return sum/(src.cols*src.rows);
 }
+
 
 Mat normalize(Mat src, float mean, float var)
 {
