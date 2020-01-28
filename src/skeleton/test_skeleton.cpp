@@ -16,7 +16,7 @@ using namespace std;
 int main()
 {
   Mat src;
-  src = imread( "images/clean_finger.png", IMREAD_GRAYSCALE );
+  src = imread( "images/test.jpg", IMREAD_GRAYSCALE );
   cout << "the mean is: " << mean_grey(src) << endl;
   cout << "the var is: " << var_grey(src) << endl;
   //src = normalize(src, 127, 5000);
