@@ -13,7 +13,7 @@ int main()
 {
   //we calculate the angle and the center of our image
   Mat src;
-  src = imread( "images/warp1_finger.png", IMREAD_GRAYSCALE );
+  src = imread( "images/rotated_image.png", IMREAD_GRAYSCALE );
   Mat final = get_image(src);
   float angle = get_angle(src);
   Point ellipse_center = find_ellipse_center(src);
@@ -23,6 +23,6 @@ int main()
   cout << "The center of the ellipse is: " << ellipse_center << endl;
   cout << "The angle of the ellipse is: " << angle << endl;
   waitKey(0);
-  //imwrite("warp1_finger_angle.png", final);
+  imwrite("rotated_angle.png", final);
   return 0;
 }

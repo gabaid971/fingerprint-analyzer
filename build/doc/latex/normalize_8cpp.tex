@@ -1,0 +1,94 @@
+\hypertarget{normalize_8cpp}{}\section{src/normalize.cpp File Reference}
+\label{normalize_8cpp}\index{src/normalize.\+cpp@{src/normalize.\+cpp}}
+
+
+Normalization of an image.  
+
+
+{\ttfamily \#include \char`\"{}normalize.\+hpp\char`\"{}}\newline
+{\ttfamily \#include $<$opencv2/core.\+hpp$>$}\newline
+{\ttfamily \#include $<$opencv2/imgproc.\+hpp$>$}\newline
+{\ttfamily \#include $<$opencv2/imgcodecs.\+hpp$>$}\newline
+{\ttfamily \#include $<$opencv2/highgui.\+hpp$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$cmath$>$}\newline
+Include dependency graph for normalize.\+cpp\+:
+% FIG 0
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+float \hyperlink{normalize_8cpp_a395a658141adc82f7515ea53303aa124}{mean\+\_\+grey} (Mat src)
+\begin{DoxyCompactList}\small\item\em Calculus of the mean. \end{DoxyCompactList}\item 
+float \hyperlink{normalize_8cpp_a44006b87936af56537adf5b8cb328e5e}{var\+\_\+grey} (Mat src)
+\begin{DoxyCompactList}\small\item\em Calculus of the variance. \end{DoxyCompactList}\item 
+Mat \hyperlink{normalize_8cpp_a4d4951d3278cc69bf9cc17cb8b00d88f}{normalize} (Mat src, float mean, float var)
+\begin{DoxyCompactList}\small\item\em Normalization of the image. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Normalization of an image. 
+
+\begin{DoxyAuthor}{Author}
+Daniel Gabaï 
+\end{DoxyAuthor}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{normalize_8cpp_a395a658141adc82f7515ea53303aa124}\label{normalize_8cpp_a395a658141adc82f7515ea53303aa124}} 
+\index{normalize.\+cpp@{normalize.\+cpp}!mean\+\_\+grey@{mean\+\_\+grey}}
+\index{mean\+\_\+grey@{mean\+\_\+grey}!normalize.\+cpp@{normalize.\+cpp}}
+\subsubsection{\texorpdfstring{mean\+\_\+grey()}{mean\_grey()}}
+{\footnotesize\ttfamily float mean\+\_\+grey (\begin{DoxyParamCaption}\item[{Mat}]{src }\end{DoxyParamCaption})}
+
+
+
+Calculus of the mean. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em src} & input image. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+mean of pixels on the image. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{normalize_8cpp_a4d4951d3278cc69bf9cc17cb8b00d88f}\label{normalize_8cpp_a4d4951d3278cc69bf9cc17cb8b00d88f}} 
+\index{normalize.\+cpp@{normalize.\+cpp}!normalize@{normalize}}
+\index{normalize@{normalize}!normalize.\+cpp@{normalize.\+cpp}}
+\subsubsection{\texorpdfstring{normalize()}{normalize()}}
+{\footnotesize\ttfamily Mat normalize (\begin{DoxyParamCaption}\item[{Mat}]{src,  }\item[{float}]{mean,  }\item[{float}]{var }\end{DoxyParamCaption})}
+
+
+
+Normalization of the image. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em src} & input image. \\
+\hline
+{\em mean} & wanted mean. \\
+\hline
+{\em var} & wanted variance. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+normalized image. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{normalize_8cpp_a44006b87936af56537adf5b8cb328e5e}\label{normalize_8cpp_a44006b87936af56537adf5b8cb328e5e}} 
+\index{normalize.\+cpp@{normalize.\+cpp}!var\+\_\+grey@{var\+\_\+grey}}
+\index{var\+\_\+grey@{var\+\_\+grey}!normalize.\+cpp@{normalize.\+cpp}}
+\subsubsection{\texorpdfstring{var\+\_\+grey()}{var\_grey()}}
+{\footnotesize\ttfamily float var\+\_\+grey (\begin{DoxyParamCaption}\item[{Mat}]{src }\end{DoxyParamCaption})}
+
+
+
+Calculus of the variance. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em src} & input image. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+variance of pixels on the image. 
+\end{DoxyReturn}

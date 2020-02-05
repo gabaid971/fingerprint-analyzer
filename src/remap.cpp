@@ -1,3 +1,8 @@
+/*!
+ * \file remap.cpp
+ * \brief Interpolation methods to rotate an image
+ * \author Daniel Gabaï
+ */
 #include "remap.hpp"
 
 #include <opencv2/core.hpp>

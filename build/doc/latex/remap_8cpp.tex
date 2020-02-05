@@ -1,0 +1,48 @@
+\hypertarget{remap_8cpp}{}\section{src/remap.cpp File Reference}
+\label{remap_8cpp}\index{src/remap.\+cpp@{src/remap.\+cpp}}
+
+
+Interpolation methods to rotate an image.  
+
+
+{\ttfamily \#include \char`\"{}remap.\+hpp\char`\"{}}\newline
+{\ttfamily \#include $<$opencv2/core.\+hpp$>$}\newline
+{\ttfamily \#include $<$opencv2/imgproc.\+hpp$>$}\newline
+{\ttfamily \#include $<$opencv2/imgcodecs.\+hpp$>$}\newline
+{\ttfamily \#include $<$opencv2/highgui.\+hpp$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$cmath$>$}\newline
+Include dependency graph for remap.\+cpp\+:
+% FIG 0
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{remap_8cpp_a4d4514826e4d2a5c84037375e29db20b}\label{remap_8cpp_a4d4514826e4d2a5c84037375e29db20b}} 
+float {\bfseries h0} (float t)
+\item 
+\mbox{\Hypertarget{remap_8cpp_a63cc6920d641d595f80208f9c58ec90e}\label{remap_8cpp_a63cc6920d641d595f80208f9c58ec90e}} 
+float {\bfseries h1} (float t)
+\item 
+\mbox{\Hypertarget{remap_8cpp_a1239a21e77dfb674d8146aab22592af4}\label{remap_8cpp_a1239a21e77dfb674d8146aab22592af4}} 
+float {\bfseries h2} (float t)
+\item 
+\mbox{\Hypertarget{remap_8cpp_a5fa8448a3349ad696ae744f924f606bb}\label{remap_8cpp_a5fa8448a3349ad696ae744f924f606bb}} 
+float {\bfseries h3} (float t)
+\item 
+\mbox{\Hypertarget{remap_8cpp_a81210d17d4ae68084331e261cf9d2501}\label{remap_8cpp_a81210d17d4ae68084331e261cf9d2501}} 
+float {\bfseries cubic\+\_\+spline} (Point p1, Point p2, Point p3, Point p4, float x)
+\item 
+\mbox{\Hypertarget{remap_8cpp_a388b36985ca7230a6a0ae15f688b17db}\label{remap_8cpp_a388b36985ca7230a6a0ae15f688b17db}} 
+uchar {\bfseries calculate\+\_\+pixel\+\_\+value} (int x, int y, float theta, Point center, Mat src, string interpolation)
+\item 
+\mbox{\Hypertarget{remap_8cpp_a69b8a93827146a211b1610d9dafc90df}\label{remap_8cpp_a69b8a93827146a211b1610d9dafc90df}} 
+void {\bfseries fill\+\_\+dst} (float theta, Point center, Mat src, Mat dst, string interpolation)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Interpolation methods to rotate an image. 
+
+\begin{DoxyAuthor}{Author}
+Daniel Gabaï 
+\end{DoxyAuthor}

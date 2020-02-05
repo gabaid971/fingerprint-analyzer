@@ -1,3 +1,8 @@
+/*!
+ * \file error.cpp
+ * \brief Comparison between two images.
+ * \author Daniel Gabaï
+ */
 #include "error.hpp"
 
 #include <opencv2/core.hpp>
@@ -10,8 +15,15 @@
 using namespace cv;
 using namespace std;
 
+/*!
+ * \fn float err(Mat diff)
+ * \brief Computation of the quadratic error.
+ *
+ * \param diff the difference between the two images to compare.
+ * \return normalized quadratic error.
+ */
 float err(Mat diff)
-{ //returns the quadratic error
+{ 
     float sum = 0;
     float norm = 0;
     for( int j = 0; j < diff.rows; j++ )

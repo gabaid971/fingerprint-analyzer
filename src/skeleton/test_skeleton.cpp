@@ -16,7 +16,7 @@ using namespace std;
 int main()
 {
   Mat src;
-  src = imread( "images/test.jpg", IMREAD_GRAYSCALE );
+  src = imread( "images/apres.png", IMREAD_GRAYSCALE );
   cout << "the mean is: " << mean_grey(src) << endl;
   cout << "the var is: " << var_grey(src) << endl;
   //src = normalize(src, 127, 5000);
@@ -29,6 +29,6 @@ int main()
   src = get_skeleton(src);
   imshow( "YOUPI", src );
   waitKey(0);
-  //imwrite("warp1_skel1.png", src);
+  imwrite("skeleton.png", src);
   return 0;
 }

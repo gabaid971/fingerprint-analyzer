@@ -8,6 +8,7 @@
 #include <opencv2/highgui.hpp>
 #include <iostream>
 #include <cmath>
+#include <time.h>
 
 using namespace cv;
 using namespace std;
@@ -15,6 +16,7 @@ using namespace std;
 
 int main()
 {
+  int time = 0;
   Mat src;
   src = imread( "images/fingerprint.jpg", IMREAD_GRAYSCALE );
   Point centroid = find_centroid( src ); // center of rotation
@@ -36,6 +38,8 @@ int main()
     fill_dst(+theta, centroid, final, dst, interpolation);
     fill_dst(-theta, centroid, dst, final, interpolation);
   }
+  time = clock();
+  cout << " The program has taken : " << time << endl;
   Mat diff;
   subtract( src, final, diff);
   float errora = err(diff);

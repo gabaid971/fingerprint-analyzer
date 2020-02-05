@@ -1,0 +1,149 @@
+\hypertarget{get__center__angle_8cpp}{}\section{src/get\+\_\+center\+\_\+angle.cpp File Reference}
+\label{get__center__angle_8cpp}\index{src/get\+\_\+center\+\_\+angle.\+cpp@{src/get\+\_\+center\+\_\+angle.\+cpp}}
+
+
+Find the center and the angle of rotation between one image and the rotation of this image.  
+
+
+{\ttfamily \#include \char`\"{}get\+\_\+center\+\_\+angle.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}opencv2/imgcodecs.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}opencv2/highgui.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}opencv2/imgproc.\+hpp\char`\"{}}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$math.\+h$>$}\newline
+Include dependency graph for get\+\_\+center\+\_\+angle.\+cpp\+:
+% FIG 0
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+Point \hyperlink{get__center__angle_8cpp_a1bda2d91ffc3bba5898584aeb011b2db}{find\+\_\+centroid} (Mat src)
+\begin{DoxyCompactList}\small\item\em Compute the barycenter of a fingerprint. \end{DoxyCompactList}\item 
+Point \hyperlink{get__center__angle_8cpp_aa6a2950398b27ec0487c02dd8a96338d}{find\+\_\+ellipse\+\_\+center} (Mat src)
+\begin{DoxyCompactList}\small\item\em Compute the center of the ellipse around the fingerprint. \end{DoxyCompactList}\item 
+Rotated\+Rect \hyperlink{get__center__angle_8cpp_a87accf52435981d0a19cb51742c31656}{get\+\_\+rectangle} (Mat src)
+\begin{DoxyCompactList}\small\item\em Compute the nearest ellipse fitting to the fingerprint. \end{DoxyCompactList}\item 
+Mat \hyperlink{get__center__angle_8cpp_a58058cdffa4bcd493b429caa6d8c2540}{get\+\_\+image} (Mat src)
+\begin{DoxyCompactList}\small\item\em Image with the rectangle around the ellipse. \end{DoxyCompactList}\item 
+float \hyperlink{get__center__angle_8cpp_a68a10572fc4704c48d57fdec4d6a0fd6}{get\+\_\+angle} (Mat src)
+\begin{DoxyCompactList}\small\item\em Compute the angle the ellipse with respect to the y axis. \end{DoxyCompactList}\item 
+Size \hyperlink{get__center__angle_8cpp_a6addcb5a75a5a34d67be88ee35eb03f8}{get\+\_\+size} (Mat src)
+\begin{DoxyCompactList}\small\item\em Compute the size of the rectangle around the ellipse. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Find the center and the angle of rotation between one image and the rotation of this image. 
+
+\begin{DoxyAuthor}{Author}
+Daniel Gabaï 
+\end{DoxyAuthor}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{get__center__angle_8cpp_a1bda2d91ffc3bba5898584aeb011b2db}\label{get__center__angle_8cpp_a1bda2d91ffc3bba5898584aeb011b2db}} 
+\index{get\+\_\+center\+\_\+angle.\+cpp@{get\+\_\+center\+\_\+angle.\+cpp}!find\+\_\+centroid@{find\+\_\+centroid}}
+\index{find\+\_\+centroid@{find\+\_\+centroid}!get\+\_\+center\+\_\+angle.\+cpp@{get\+\_\+center\+\_\+angle.\+cpp}}
+\subsubsection{\texorpdfstring{find\+\_\+centroid()}{find\_centroid()}}
+{\footnotesize\ttfamily Point find\+\_\+centroid (\begin{DoxyParamCaption}\item[{Mat}]{src }\end{DoxyParamCaption})}
+
+
+
+Compute the barycenter of a fingerprint. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em src} & input image. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the barycenter point. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{get__center__angle_8cpp_aa6a2950398b27ec0487c02dd8a96338d}\label{get__center__angle_8cpp_aa6a2950398b27ec0487c02dd8a96338d}} 
+\index{get\+\_\+center\+\_\+angle.\+cpp@{get\+\_\+center\+\_\+angle.\+cpp}!find\+\_\+ellipse\+\_\+center@{find\+\_\+ellipse\+\_\+center}}
+\index{find\+\_\+ellipse\+\_\+center@{find\+\_\+ellipse\+\_\+center}!get\+\_\+center\+\_\+angle.\+cpp@{get\+\_\+center\+\_\+angle.\+cpp}}
+\subsubsection{\texorpdfstring{find\+\_\+ellipse\+\_\+center()}{find\_ellipse\_center()}}
+{\footnotesize\ttfamily Point find\+\_\+ellipse\+\_\+center (\begin{DoxyParamCaption}\item[{Mat}]{src }\end{DoxyParamCaption})}
+
+
+
+Compute the center of the ellipse around the fingerprint. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em src} & input image. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the point of the center of the ellipse. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{get__center__angle_8cpp_a68a10572fc4704c48d57fdec4d6a0fd6}\label{get__center__angle_8cpp_a68a10572fc4704c48d57fdec4d6a0fd6}} 
+\index{get\+\_\+center\+\_\+angle.\+cpp@{get\+\_\+center\+\_\+angle.\+cpp}!get\+\_\+angle@{get\+\_\+angle}}
+\index{get\+\_\+angle@{get\+\_\+angle}!get\+\_\+center\+\_\+angle.\+cpp@{get\+\_\+center\+\_\+angle.\+cpp}}
+\subsubsection{\texorpdfstring{get\+\_\+angle()}{get\_angle()}}
+{\footnotesize\ttfamily Mat float get\+\_\+angle (\begin{DoxyParamCaption}\item[{Mat}]{src }\end{DoxyParamCaption})}
+
+
+
+Compute the angle the ellipse with respect to the y axis. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em src} & input image. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+angle of the ellipse. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{get__center__angle_8cpp_a58058cdffa4bcd493b429caa6d8c2540}\label{get__center__angle_8cpp_a58058cdffa4bcd493b429caa6d8c2540}} 
+\index{get\+\_\+center\+\_\+angle.\+cpp@{get\+\_\+center\+\_\+angle.\+cpp}!get\+\_\+image@{get\+\_\+image}}
+\index{get\+\_\+image@{get\+\_\+image}!get\+\_\+center\+\_\+angle.\+cpp@{get\+\_\+center\+\_\+angle.\+cpp}}
+\subsubsection{\texorpdfstring{get\+\_\+image()}{get\_image()}}
+{\footnotesize\ttfamily Mat get\+\_\+image (\begin{DoxyParamCaption}\item[{Mat}]{src }\end{DoxyParamCaption})}
+
+
+
+Image with the rectangle around the ellipse. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em src} & input image. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+image with the rectangle around the contour. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{get__center__angle_8cpp_a87accf52435981d0a19cb51742c31656}\label{get__center__angle_8cpp_a87accf52435981d0a19cb51742c31656}} 
+\index{get\+\_\+center\+\_\+angle.\+cpp@{get\+\_\+center\+\_\+angle.\+cpp}!get\+\_\+rectangle@{get\+\_\+rectangle}}
+\index{get\+\_\+rectangle@{get\+\_\+rectangle}!get\+\_\+center\+\_\+angle.\+cpp@{get\+\_\+center\+\_\+angle.\+cpp}}
+\subsubsection{\texorpdfstring{get\+\_\+rectangle()}{get\_rectangle()}}
+{\footnotesize\ttfamily Rotated\+Rect get\+\_\+rectangle (\begin{DoxyParamCaption}\item[{Mat}]{src }\end{DoxyParamCaption})}
+
+
+
+Compute the nearest ellipse fitting to the fingerprint. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em src} & input image. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the rectangle around the ellipse. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{get__center__angle_8cpp_a6addcb5a75a5a34d67be88ee35eb03f8}\label{get__center__angle_8cpp_a6addcb5a75a5a34d67be88ee35eb03f8}} 
+\index{get\+\_\+center\+\_\+angle.\+cpp@{get\+\_\+center\+\_\+angle.\+cpp}!get\+\_\+size@{get\+\_\+size}}
+\index{get\+\_\+size@{get\+\_\+size}!get\+\_\+center\+\_\+angle.\+cpp@{get\+\_\+center\+\_\+angle.\+cpp}}
+\subsubsection{\texorpdfstring{get\+\_\+size()}{get\_size()}}
+{\footnotesize\ttfamily Size get\+\_\+size (\begin{DoxyParamCaption}\item[{Mat}]{src }\end{DoxyParamCaption})}
+
+
+
+Compute the size of the rectangle around the ellipse. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em src} & input image. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+size of the rectangle. 
+\end{DoxyReturn}

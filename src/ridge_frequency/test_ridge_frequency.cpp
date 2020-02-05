@@ -84,15 +84,14 @@ vector<float> x_signature(Mat src, int i, int j, int block_size)
       value += src.at<float>(v, u);
     }
     x_signature.push_back(value/(float)block_size);
-    cout <<" signature: " << value/(float)block_size << endl;
   }
   return x_signature;
 }
 
 
-vector<float> deriv_signature(vector<float> x_signature)
+vector<int> deriv_signature(vector<float> &x_signature)
 {
-  vector<float> deriv_signature;
+  vector<int> deriv_signature;
   for (int i = 0; i < (int)(x_signature.size()-1); i++)
   {
     if (x_signature[i+1] > x_signature[i]) deriv_signature.push_back(1);
@@ -102,17 +101,40 @@ vector<float> deriv_signature(vector<float> x_signature)
   return deriv_signature;
 }
 
-
-vector<float> second_deriv_signature(vector<float> deriv_signature)
+vector<int> second_deriv_signature(vector<int> deriv_signature)
 {
-  vector<float> second_deriv_signature;
+  vector<int> second_deriv_signature;
   for (int i = 0; i < (int)(deriv_signature.size()-1); i++)
   {
     second_deriv_signature.push_back(deriv_signature[i+1] - deriv_signature[i]);
+    cout <<" signature: " << deriv_signature[i+1] - deriv_signature[i]  << endl;
   }
   return second_deriv_signature;
 }
 
+float frequency(vector<float> x_signature)
+{
+  vector<int> deriv_signature = deriv_signature(x_signature);
+  vector<int> second_deriv_signature = second_deriv_signature(deriv_signature);
+  int nb_of_peaks = 0;
+  vector<int> position_of_peaks;
+  for (int i = 0; i < (int)(second_deriv_signature.size()); i++)
+  {
+    if (second_deriv_signature[i] == 2)
+    {
+      nb_of_peaks += 1;
+      position_of_peaks.push_back(i);
+    }
+  }
+  float frequency = -1;
+  if (position_of_peaks.size() == 0) return frequency;
+  if (position_of_peaks.size() == 1) return frequency;
+  if (position_of_peaks.size() > 1)
+  {
+    frequency = (float)(position_of_peaks[0] - position_of_peaks[-1])/(float)(nb_of_peaks-1);
+  }
+  return frequency;
+}
 
 int main()
 {
@@ -120,8 +142,20 @@ int main()
   src = imread( "images/clean_finger.png", IMREAD_GRAYSCALE );
   src.convertTo(src, CV_32F, 1.0/255, 0);
   cout <<" type of the image: " << src.type()<< endl;
-  vector<float> essai = x_signature(src, 8, 8, 8);
-  vector<float> deriv_essai = deriv_signature(essai);
+  vector<float> vague;
+  vague.push_back(1);
+  vague.push_back(2);
+  vague.push_back(3);
+  vague.push_back(2);
+  vague.push_back(1);
+  vague.push_back(2);
+  vague.push_back(3);
+  vector<int> vagua = deriv_signature(vague);
+  //float ridge_frequency = frequency(vague);
+  //cout <<" ridge_frequency: " << ridge_frequency << endl;
+  //vector<float> essai = x_signature(src, 8, 8, 8);
+  //vector<float> deriv_essai = deriv_signature(essai);
+  //vector<float> second_deriv_essai = second_deriv_signature(deriv_essai);
   //Mat smoothed = get_orientation_block(src, 8);
   //imshow( "Orientation map", smoothed );
   //waitKey(0);

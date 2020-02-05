@@ -1,3 +1,8 @@
+/*!
+ * \file normalize.cpp
+ * \brief Normalization of an image
+ * \author Daniel Gabaï
+ */
 #include "normalize.hpp"
 
 #include <opencv2/core.hpp>
@@ -11,6 +16,13 @@ using namespace cv;
 using namespace std;
 
 
+/*!
+ * \fn float mean_grey(Mat src)
+ * \brief Calculus of the mean.
+ *
+ * \param src input image.
+ * \return mean of pixels on the image.
+ */
 float mean_grey(Mat src)
 {
   float sum = 0;
@@ -25,6 +37,13 @@ float mean_grey(Mat src)
 }
 
 
+/*!
+ * \fn float var_grey(Mat src)
+ * \brief Calculus of the variance.
+ *
+ * \param src input image.
+ * \return variance of pixels on the image.
+ */
 float var_grey(Mat src)
 {
   float sum = 0;
@@ -40,6 +59,15 @@ float var_grey(Mat src)
 }
 
 
+/*!
+ * \fn Mat normalize(Mat src, float mean, float var)
+ * \brief Normalization of the image.
+ *
+ * \param src input image.
+ * \param mean wanted mean.
+ * \param var wanted variance.
+ * \return normalized image.
+ */
 Mat normalize(Mat src, float mean, float var)
 {
   float M = mean_grey(src);

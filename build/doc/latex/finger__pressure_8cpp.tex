@@ -1,0 +1,103 @@
+\hypertarget{finger__pressure_8cpp}{}\section{src/finger\+\_\+pressure.cpp File Reference}
+\label{finger__pressure_8cpp}\index{src/finger\+\_\+pressure.\+cpp@{src/finger\+\_\+pressure.\+cpp}}
+
+
+Tools to transform a hard pression fingerprint into a weak pression fingerprint.  
+
+
+{\ttfamily \#include \char`\"{}finger\+\_\+pressure.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}get\+\_\+center\+\_\+angle.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}opencv2/imgcodecs.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}opencv2/highgui.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}opencv2/imgproc.\+hpp\char`\"{}}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$math.\+h$>$}\newline
+Include dependency graph for finger\+\_\+pressure.\+cpp\+:
+% FIG 0
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+double \hyperlink{finger__pressure_8cpp_aad6511d08163ba74ba4d66feecfef0f6}{distance\+\_\+to} (Point p1, Point p2)
+\begin{DoxyCompactList}\small\item\em Computation of euclidian distance. \end{DoxyCompactList}\item 
+double \hyperlink{finger__pressure_8cpp_a686210d0790827631e6627ac0bd31a43}{c} (double x, double y, float alpha, float r)
+\begin{DoxyCompactList}\small\item\em Computation of the function c, giving an ellipsoid. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{finger__pressure_8cpp_aefc5e6f983272b6151e686c448e3193c}\label{finger__pressure_8cpp_aefc5e6f983272b6151e686c448e3193c}} 
+uchar {\bfseries new\+\_\+pixel} (int i, int j, Point center, Mat trans, float alpha, float r)
+\item 
+Point \hyperlink{finger__pressure_8cpp_a7b26db36cbb34478e54b2df45dbf9cda}{choose\+\_\+center} (string center\+\_\+type, Mat src)
+\begin{DoxyCompactList}\small\item\em Choose between three type of center. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Tools to transform a hard pression fingerprint into a weak pression fingerprint. 
+
+\begin{DoxyAuthor}{Author}
+Daniel Gabaï 
+\end{DoxyAuthor}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{finger__pressure_8cpp_a686210d0790827631e6627ac0bd31a43}\label{finger__pressure_8cpp_a686210d0790827631e6627ac0bd31a43}} 
+\index{finger\+\_\+pressure.\+cpp@{finger\+\_\+pressure.\+cpp}!c@{c}}
+\index{c@{c}!finger\+\_\+pressure.\+cpp@{finger\+\_\+pressure.\+cpp}}
+\subsubsection{\texorpdfstring{c()}{c()}}
+{\footnotesize\ttfamily double c (\begin{DoxyParamCaption}\item[{double}]{x,  }\item[{double}]{y,  }\item[{float}]{alpha,  }\item[{float}]{r }\end{DoxyParamCaption})}
+
+
+
+Computation of the function c, giving an ellipsoid. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & coordinate along the x axis. \\
+\hline
+{\em y} & coordinate along the y axis. \\
+\hline
+{\em alpha} & ratio between the big axis and the little axis of the ellipse. \\
+\hline
+{\em r} & lenght of the half of the little axis. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+value of the c function. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{finger__pressure_8cpp_a7b26db36cbb34478e54b2df45dbf9cda}\label{finger__pressure_8cpp_a7b26db36cbb34478e54b2df45dbf9cda}} 
+\index{finger\+\_\+pressure.\+cpp@{finger\+\_\+pressure.\+cpp}!choose\+\_\+center@{choose\+\_\+center}}
+\index{choose\+\_\+center@{choose\+\_\+center}!finger\+\_\+pressure.\+cpp@{finger\+\_\+pressure.\+cpp}}
+\subsubsection{\texorpdfstring{choose\+\_\+center()}{choose\_center()}}
+{\footnotesize\ttfamily Point choose\+\_\+center (\begin{DoxyParamCaption}\item[{string}]{center\+\_\+type,  }\item[{Mat}]{src }\end{DoxyParamCaption})}
+
+
+
+Choose between three type of center. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em center\+\_\+type} & the type of center to choose between \char`\"{}ellipse\+\_\+center\char`\"{}, \char`\"{}centroid\char`\"{} and \char`\"{}image\+\_\+center\char`\"{}. \\
+\hline
+{\em src} & input image. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+coordinates of the center chosen. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{finger__pressure_8cpp_aad6511d08163ba74ba4d66feecfef0f6}\label{finger__pressure_8cpp_aad6511d08163ba74ba4d66feecfef0f6}} 
+\index{finger\+\_\+pressure.\+cpp@{finger\+\_\+pressure.\+cpp}!distance\+\_\+to@{distance\+\_\+to}}
+\index{distance\+\_\+to@{distance\+\_\+to}!finger\+\_\+pressure.\+cpp@{finger\+\_\+pressure.\+cpp}}
+\subsubsection{\texorpdfstring{distance\+\_\+to()}{distance\_to()}}
+{\footnotesize\ttfamily double distance\+\_\+to (\begin{DoxyParamCaption}\item[{Point}]{p1,  }\item[{Point}]{p2 }\end{DoxyParamCaption})}
+
+
+
+Computation of euclidian distance. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p1} & first point. \\
+\hline
+{\em p2} & second point. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+distance between the two points. 
+\end{DoxyReturn}

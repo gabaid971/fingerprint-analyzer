@@ -1,0 +1,172 @@
+\hypertarget{get__skeleton_8cpp}{}\section{src/get\+\_\+skeleton.cpp File Reference}
+\label{get__skeleton_8cpp}\index{src/get\+\_\+skeleton.\+cpp@{src/get\+\_\+skeleton.\+cpp}}
+
+
+Thinning of a fingerprint.  
+
+
+{\ttfamily \#include \char`\"{}get\+\_\+skeleton.\+hpp\char`\"{}}\newline
+{\ttfamily \#include $<$opencv2/core.\+hpp$>$}\newline
+{\ttfamily \#include $<$opencv2/imgproc.\+hpp$>$}\newline
+{\ttfamily \#include $<$opencv2/imgcodecs.\+hpp$>$}\newline
+{\ttfamily \#include $<$opencv2/highgui.\+hpp$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$cmath$>$}\newline
+Include dependency graph for get\+\_\+skeleton.\+cpp\+:
+% FIG 0
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{get__skeleton_8cpp_a800c8d79619ea700e82b3be08a635121}{ctb} (Mat src, int i, int j)
+\begin{DoxyCompactList}\small\item\em Convert to boolean. \end{DoxyCompactList}\item 
+bool \hyperlink{get__skeleton_8cpp_afd954323fc1c2d3c1e304ca364e6bed7}{check\+\_\+1} (Mat src, int i, int j)
+\begin{DoxyCompactList}\small\item\em First check for thinning \+: is the point (i,j) an ending point (crossing number = 1) ?. \end{DoxyCompactList}\item 
+bool \hyperlink{get__skeleton_8cpp_a503ec10760bed9e96941d9f8d478b6dc}{check\+\_\+2} (Mat src, int i, int j)
+\begin{DoxyCompactList}\small\item\em Second check for thinning. \end{DoxyCompactList}\item 
+bool \hyperlink{get__skeleton_8cpp_a15c69c24357d1082c433ab18b2fc35b7}{check\+\_\+3} (Mat src, int i, int j, bool state)
+\begin{DoxyCompactList}\small\item\em Third check for thinning. \end{DoxyCompactList}\item 
+vector$<$ Point $>$ \hyperlink{get__skeleton_8cpp_a00797f051db039c11cf259d51b6c766e}{step} (Mat src, bool state, vector$<$ Point $>$ to\+\_\+erase)
+\begin{DoxyCompactList}\small\item\em Fill a vector with all points which will be deleted after the first or second step. \end{DoxyCompactList}\item 
+Mat \hyperlink{get__skeleton_8cpp_a0de7fff8236d598e28a158228c319e9e}{get\+\_\+skeleton} (Mat src)
+\begin{DoxyCompactList}\small\item\em Computation of the skeleton of an image with thinning. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Thinning of a fingerprint. 
+
+\begin{DoxyAuthor}{Author}
+Daniel Gabaï 
+\end{DoxyAuthor}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{get__skeleton_8cpp_afd954323fc1c2d3c1e304ca364e6bed7}\label{get__skeleton_8cpp_afd954323fc1c2d3c1e304ca364e6bed7}} 
+\index{get\+\_\+skeleton.\+cpp@{get\+\_\+skeleton.\+cpp}!check\+\_\+1@{check\+\_\+1}}
+\index{check\+\_\+1@{check\+\_\+1}!get\+\_\+skeleton.\+cpp@{get\+\_\+skeleton.\+cpp}}
+\subsubsection{\texorpdfstring{check\+\_\+1()}{check\_1()}}
+{\footnotesize\ttfamily bool check\+\_\+1 (\begin{DoxyParamCaption}\item[{Mat}]{src,  }\item[{int}]{i,  }\item[{int}]{j }\end{DoxyParamCaption})}
+
+
+
+First check for thinning \+: is the point (i,j) an ending point (crossing number = 1) ?. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em src} & input image. \\
+\hline
+{\em i} & position on x axis. \\
+\hline
+{\em j} & position on y axis. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if (i,j) is an ending point, 0 else. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{get__skeleton_8cpp_a503ec10760bed9e96941d9f8d478b6dc}\label{get__skeleton_8cpp_a503ec10760bed9e96941d9f8d478b6dc}} 
+\index{get\+\_\+skeleton.\+cpp@{get\+\_\+skeleton.\+cpp}!check\+\_\+2@{check\+\_\+2}}
+\index{check\+\_\+2@{check\+\_\+2}!get\+\_\+skeleton.\+cpp@{get\+\_\+skeleton.\+cpp}}
+\subsubsection{\texorpdfstring{check\+\_\+2()}{check\_2()}}
+{\footnotesize\ttfamily bool check\+\_\+2 (\begin{DoxyParamCaption}\item[{Mat}]{src,  }\item[{int}]{i,  }\item[{int}]{j }\end{DoxyParamCaption})}
+
+
+
+Second check for thinning. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em src} & input image. \\
+\hline
+{\em i} & position on x axis. \\
+\hline
+{\em j} & position on y axis. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+boolean. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{get__skeleton_8cpp_a15c69c24357d1082c433ab18b2fc35b7}\label{get__skeleton_8cpp_a15c69c24357d1082c433ab18b2fc35b7}} 
+\index{get\+\_\+skeleton.\+cpp@{get\+\_\+skeleton.\+cpp}!check\+\_\+3@{check\+\_\+3}}
+\index{check\+\_\+3@{check\+\_\+3}!get\+\_\+skeleton.\+cpp@{get\+\_\+skeleton.\+cpp}}
+\subsubsection{\texorpdfstring{check\+\_\+3()}{check\_3()}}
+{\footnotesize\ttfamily bool check\+\_\+3 (\begin{DoxyParamCaption}\item[{Mat}]{src,  }\item[{int}]{i,  }\item[{int}]{j,  }\item[{bool}]{state }\end{DoxyParamCaption})}
+
+
+
+Third check for thinning. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em src} & input image. \\
+\hline
+{\em i} & position on x axis. \\
+\hline
+{\em j} & position on y axis. \\
+\hline
+{\em state} & 1 for the first step, 0 for the second one. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+boolean. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{get__skeleton_8cpp_a800c8d79619ea700e82b3be08a635121}\label{get__skeleton_8cpp_a800c8d79619ea700e82b3be08a635121}} 
+\index{get\+\_\+skeleton.\+cpp@{get\+\_\+skeleton.\+cpp}!ctb@{ctb}}
+\index{ctb@{ctb}!get\+\_\+skeleton.\+cpp@{get\+\_\+skeleton.\+cpp}}
+\subsubsection{\texorpdfstring{ctb()}{ctb()}}
+{\footnotesize\ttfamily bool ctb (\begin{DoxyParamCaption}\item[{Mat}]{src,  }\item[{int}]{i,  }\item[{int}]{j }\end{DoxyParamCaption})}
+
+
+
+Convert to boolean. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em src} & input image. \\
+\hline
+{\em i} & position on x axis. \\
+\hline
+{\em j} & position on y axis. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if (i,j) is black, 0 else. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{get__skeleton_8cpp_a0de7fff8236d598e28a158228c319e9e}\label{get__skeleton_8cpp_a0de7fff8236d598e28a158228c319e9e}} 
+\index{get\+\_\+skeleton.\+cpp@{get\+\_\+skeleton.\+cpp}!get\+\_\+skeleton@{get\+\_\+skeleton}}
+\index{get\+\_\+skeleton@{get\+\_\+skeleton}!get\+\_\+skeleton.\+cpp@{get\+\_\+skeleton.\+cpp}}
+\subsubsection{\texorpdfstring{get\+\_\+skeleton()}{get\_skeleton()}}
+{\footnotesize\ttfamily Mat get\+\_\+skeleton (\begin{DoxyParamCaption}\item[{Mat}]{src }\end{DoxyParamCaption})}
+
+
+
+Computation of the skeleton of an image with thinning. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em src} & input image. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+image of the skeleton. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{get__skeleton_8cpp_a00797f051db039c11cf259d51b6c766e}\label{get__skeleton_8cpp_a00797f051db039c11cf259d51b6c766e}} 
+\index{get\+\_\+skeleton.\+cpp@{get\+\_\+skeleton.\+cpp}!step@{step}}
+\index{step@{step}!get\+\_\+skeleton.\+cpp@{get\+\_\+skeleton.\+cpp}}
+\subsubsection{\texorpdfstring{step()}{step()}}
+{\footnotesize\ttfamily vector$<$ Point $>$ step (\begin{DoxyParamCaption}\item[{Mat}]{src,  }\item[{bool}]{state,  }\item[{vector$<$ Point $>$}]{to\+\_\+erase }\end{DoxyParamCaption})}
+
+
+
+Fill a vector with all points which will be deleted after the first or second step. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em src} & input image. \\
+\hline
+{\em state} & 1 for the first step, 0 for the second one. \\
+\hline
+{\em to\+\_\+erase} & vector with points to erase. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+vector with new points to delete. 
+\end{DoxyReturn}

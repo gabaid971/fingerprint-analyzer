@@ -84,9 +84,10 @@ Mat get_orientation_map(Mat src, int block_size)
 int main()
 {
   Mat src;
-  src = imread( "images/rond.png", IMREAD_GRAYSCALE );
+  src = imread( "images/fingerprint.jpg", IMREAD_GRAYSCALE );
   Mat ori_map = get_orientation_map(src, 8);
   imshow( "Orientation map", ori_map );
   waitKey(0);
+  imwrite("orientation_map.png", ori_map);
   return 0;
 }

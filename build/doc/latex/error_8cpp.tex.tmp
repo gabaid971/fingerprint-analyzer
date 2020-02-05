@@ -1,0 +1,50 @@
+\hypertarget{error_8cpp}{}\section{src/error.cpp File Reference}
+\label{error_8cpp}\index{src/error.\+cpp@{src/error.\+cpp}}
+
+
+Comparison between two images.  
+
+
+{\ttfamily \#include \char`\"{}error.\+hpp\char`\"{}}\newline
+{\ttfamily \#include $<$opencv2/core.\+hpp$>$}\newline
+{\ttfamily \#include $<$opencv2/imgproc.\+hpp$>$}\newline
+{\ttfamily \#include $<$opencv2/imgcodecs.\+hpp$>$}\newline
+{\ttfamily \#include $<$opencv2/highgui.\+hpp$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$cmath$>$}\newline
+Include dependency graph for error.\+cpp\+:
+% FIG 0
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+float \hyperlink{error_8cpp_a5536c55cbfcb243d9d3c4740949c2b8d}{err} (Mat diff)
+\begin{DoxyCompactList}\small\item\em Computation of the quadratic error. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Comparison between two images. 
+
+\begin{DoxyAuthor}{Author}
+Daniel Gabaï 
+\end{DoxyAuthor}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{error_8cpp_a5536c55cbfcb243d9d3c4740949c2b8d}\label{error_8cpp_a5536c55cbfcb243d9d3c4740949c2b8d}} 
+\index{error.\+cpp@{error.\+cpp}!err@{err}}
+\index{err@{err}!error.\+cpp@{error.\+cpp}}
+\subsubsection{\texorpdfstring{err()}{err()}}
+{\footnotesize\ttfamily float err (\begin{DoxyParamCaption}\item[{Mat}]{diff }\end{DoxyParamCaption})}
+
+
+
+Computation of the quadratic error. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em diff} & the difference between the two images to compare. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+normalized quadratic error. 
+\end{DoxyReturn}
