@@ -1,0 +1,119 @@
+\hypertarget{translation__x_8cpp}{}\section{src/translation\+\_\+x.cpp File Reference}
+\label{translation__x_8cpp}\index{src/translation\+\_\+x.\+cpp@{src/translation\+\_\+x.\+cpp}}
+
+
+Comparison between an image and the translated image on the x axis.  
+
+
+{\ttfamily \#include \char`\"{}error.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}translation\+\_\+x.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}update\+\_\+translation.\+hpp\char`\"{}}\newline
+{\ttfamily \#include $<$opencv2/core.\+hpp$>$}\newline
+{\ttfamily \#include $<$opencv2/imgproc.\+hpp$>$}\newline
+{\ttfamily \#include $<$opencv2/imgcodecs.\+hpp$>$}\newline
+{\ttfamily \#include $<$opencv2/highgui.\+hpp$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$cmath$>$}\newline
+Include dependency graph for translation\+\_\+x.\+cpp\+:
+% FIG 0
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{translation__x_8cpp_ac7eab17f595c1a1d2f13909d4c6793a0}{best\+\_\+translation} (Mat src, Mat obj)
+\begin{DoxyCompactList}\small\item\em Find the best translation parameter. \end{DoxyCompactList}\item 
+float \hyperlink{translation__x_8cpp_aecaac380f2235ab866969c42a9e961d7}{translation\+\_\+max\+\_\+error} (Mat src, Mat obj)
+\begin{DoxyCompactList}\small\item\em Find the maximum of the quadratic error between the two images. \end{DoxyCompactList}\item 
+float \hyperlink{translation__x_8cpp_af095a001938c68756da8b5f5c0804f94}{translation\+\_\+min\+\_\+error} (Mat src, Mat obj)
+\begin{DoxyCompactList}\small\item\em Find the minimum of the quadratic error between the two images. \end{DoxyCompactList}\item 
+void \hyperlink{translation__x_8cpp_a1fa0dffe47a114699ab5cdb8e3842ea2}{draw\+\_\+translation} (Mat src, Mat obj, Mat draw)
+\begin{DoxyCompactList}\small\item\em Draw the evolution of the quadratic error between the two images. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Comparison between an image and the translated image on the x axis. 
+
+\begin{DoxyAuthor}{Author}
+Daniel Gabaï 
+\end{DoxyAuthor}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{translation__x_8cpp_ac7eab17f595c1a1d2f13909d4c6793a0}\label{translation__x_8cpp_ac7eab17f595c1a1d2f13909d4c6793a0}} 
+\index{translation\+\_\+x.\+cpp@{translation\+\_\+x.\+cpp}!best\+\_\+translation@{best\+\_\+translation}}
+\index{best\+\_\+translation@{best\+\_\+translation}!translation\+\_\+x.\+cpp@{translation\+\_\+x.\+cpp}}
+\subsubsection{\texorpdfstring{best\+\_\+translation()}{best\_translation()}}
+{\footnotesize\ttfamily int best\+\_\+translation (\begin{DoxyParamCaption}\item[{Mat}]{src,  }\item[{Mat}]{obj }\end{DoxyParamCaption})}
+
+
+
+Find the best translation parameter. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em src} & input image. \\
+\hline
+{\em obj} & translated image. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+number of pixels for the translation. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{translation__x_8cpp_a1fa0dffe47a114699ab5cdb8e3842ea2}\label{translation__x_8cpp_a1fa0dffe47a114699ab5cdb8e3842ea2}} 
+\index{translation\+\_\+x.\+cpp@{translation\+\_\+x.\+cpp}!draw\+\_\+translation@{draw\+\_\+translation}}
+\index{draw\+\_\+translation@{draw\+\_\+translation}!translation\+\_\+x.\+cpp@{translation\+\_\+x.\+cpp}}
+\subsubsection{\texorpdfstring{draw\+\_\+translation()}{draw\_translation()}}
+{\footnotesize\ttfamily void draw\+\_\+translation (\begin{DoxyParamCaption}\item[{Mat}]{src,  }\item[{Mat}]{obj,  }\item[{Mat}]{draw }\end{DoxyParamCaption})}
+
+
+
+Draw the evolution of the quadratic error between the two images. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em src} & input image. \\
+\hline
+{\em obj} & translated image. \\
+\hline
+{\em draw} & image to draw the error function. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{translation__x_8cpp_aecaac380f2235ab866969c42a9e961d7}\label{translation__x_8cpp_aecaac380f2235ab866969c42a9e961d7}} 
+\index{translation\+\_\+x.\+cpp@{translation\+\_\+x.\+cpp}!translation\+\_\+max\+\_\+error@{translation\+\_\+max\+\_\+error}}
+\index{translation\+\_\+max\+\_\+error@{translation\+\_\+max\+\_\+error}!translation\+\_\+x.\+cpp@{translation\+\_\+x.\+cpp}}
+\subsubsection{\texorpdfstring{translation\+\_\+max\+\_\+error()}{translation\_max\_error()}}
+{\footnotesize\ttfamily float translation\+\_\+max\+\_\+error (\begin{DoxyParamCaption}\item[{Mat}]{src,  }\item[{Mat}]{obj }\end{DoxyParamCaption})}
+
+
+
+Find the maximum of the quadratic error between the two images. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em src} & input image. \\
+\hline
+{\em obj} & translated image. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+maximum of the error function. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{translation__x_8cpp_af095a001938c68756da8b5f5c0804f94}\label{translation__x_8cpp_af095a001938c68756da8b5f5c0804f94}} 
+\index{translation\+\_\+x.\+cpp@{translation\+\_\+x.\+cpp}!translation\+\_\+min\+\_\+error@{translation\+\_\+min\+\_\+error}}
+\index{translation\+\_\+min\+\_\+error@{translation\+\_\+min\+\_\+error}!translation\+\_\+x.\+cpp@{translation\+\_\+x.\+cpp}}
+\subsubsection{\texorpdfstring{translation\+\_\+min\+\_\+error()}{translation\_min\_error()}}
+{\footnotesize\ttfamily float translation\+\_\+min\+\_\+error (\begin{DoxyParamCaption}\item[{Mat}]{src,  }\item[{Mat}]{obj }\end{DoxyParamCaption})}
+
+
+
+Find the minimum of the quadratic error between the two images. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em src} & input image. \\
+\hline
+{\em obj} & translated image. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+minimum of the error function. 
+\end{DoxyReturn}

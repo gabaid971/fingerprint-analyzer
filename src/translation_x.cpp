@@ -1,3 +1,8 @@
+/*!
+ * \file translation_x.cpp
+ * \brief Comparison between an image and the translated image on the x axis
+ * \author Daniel Gabaï
+ */
 #include "error.hpp"
 #include "translation_x.hpp"
 #include "update_translation.hpp"
@@ -13,6 +18,14 @@ using namespace cv;
 using namespace std;
 
 
+/*!
+ * \fn int best_translation(Mat src, Mat obj)
+ * \brief Find the best translation parameter.
+ *
+ * \param src input image.
+ * \param obj translated image.
+ * \return number of pixels for the translation.
+ */
 int best_translation(Mat src, Mat obj)
 {
   Mat diff;
@@ -37,6 +50,15 @@ int best_translation(Mat src, Mat obj)
   return indice;
 }
 
+
+/*!
+ * \fn float translation_max_error(Mat src, Mat obj)
+ * \brief Find the maximum of the quadratic error between the two images.
+ *
+ * \param src input image.
+ * \param obj translated image.
+ * \return maximum of the error function.
+ */
 float translation_max_error(Mat src, Mat obj)
 {
   Mat diff;
@@ -60,6 +82,14 @@ float translation_max_error(Mat src, Mat obj)
 }
 
 
+/*!
+ * \fn float translation_min_error(Mat src, Mat obj)
+ * \brief Find the minimum of the quadratic error between the two images.
+ *
+ * \param src input image.
+ * \param obj translated image.
+ * \return minimum of the error function.
+ */
 float translation_min_error(Mat src, Mat obj)
 {
   Mat diff;
@@ -83,6 +113,14 @@ float translation_min_error(Mat src, Mat obj)
 }
 
 
+/*!
+ * \fn void draw_translation(Mat src, Mat obj, Mat draw)
+ * \brief Draw the evolution of the quadratic error between the two images.
+ *
+ * \param src input image.
+ * \param obj translated image.
+ * \param draw image to draw the error function.
+ */
 void draw_translation(Mat src, Mat obj, Mat draw)
 {
   vector<Point> imagePoints;

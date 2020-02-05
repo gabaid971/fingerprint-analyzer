@@ -1,0 +1,52 @@
+\hypertarget{update__rotation_8cpp}{}\section{src/update\+\_\+rotation.cpp File Reference}
+\label{update__rotation_8cpp}\index{src/update\+\_\+rotation.\+cpp@{src/update\+\_\+rotation.\+cpp}}
+
+
+Basic rotation tool to feed the remap function of open\+CV.  
+
+
+{\ttfamily \#include \char`\"{}update\+\_\+rotation.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}opencv2/imgcodecs.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}opencv2/highgui.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}opencv2/imgproc.\+hpp\char`\"{}}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$math.\+h$>$}\newline
+Include dependency graph for update\+\_\+rotation.\+cpp\+:
+% FIG 0
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{update__rotation_8cpp_ad40aba6517d84a231e10ca322d78a2c0}{update\+\_\+map\+\_\+rotation} (Mat map\+\_\+x, Mat map\+\_\+y, Point center, float theta)
+\begin{DoxyCompactList}\small\item\em Modify maps on the x and y axis to make a rotation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Basic rotation tool to feed the remap function of open\+CV. 
+
+\begin{DoxyAuthor}{Author}
+Daniel Gabaï 
+\end{DoxyAuthor}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{update__rotation_8cpp_ad40aba6517d84a231e10ca322d78a2c0}\label{update__rotation_8cpp_ad40aba6517d84a231e10ca322d78a2c0}} 
+\index{update\+\_\+rotation.\+cpp@{update\+\_\+rotation.\+cpp}!update\+\_\+map\+\_\+rotation@{update\+\_\+map\+\_\+rotation}}
+\index{update\+\_\+map\+\_\+rotation@{update\+\_\+map\+\_\+rotation}!update\+\_\+rotation.\+cpp@{update\+\_\+rotation.\+cpp}}
+\subsubsection{\texorpdfstring{update\+\_\+map\+\_\+rotation()}{update\_map\_rotation()}}
+{\footnotesize\ttfamily void update\+\_\+map\+\_\+rotation (\begin{DoxyParamCaption}\item[{Mat}]{map\+\_\+x,  }\item[{Mat}]{map\+\_\+y,  }\item[{Point}]{center,  }\item[{float}]{theta }\end{DoxyParamCaption})}
+
+
+
+Modify maps on the x and y axis to make a rotation. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em map\+\_\+x} & transformation according the x axis. \\
+\hline
+{\em map\+\_\+y} & transformation according the y axis. \\
+\hline
+{\em center} & center of the rotation. \\
+\hline
+{\em theta} & angle of rotation. \\
+\hline
+\end{DoxyParams}

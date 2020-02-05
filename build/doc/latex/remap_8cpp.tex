@@ -17,27 +17,20 @@ Include dependency graph for remap.\+cpp\+:
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{remap_8cpp_a4d4514826e4d2a5c84037375e29db20b}\label{remap_8cpp_a4d4514826e4d2a5c84037375e29db20b}} 
-float {\bfseries h0} (float t)
+float \hyperlink{remap_8cpp_a4d4514826e4d2a5c84037375e29db20b}{h0} (float t)
+\begin{DoxyCompactList}\small\item\em Basis of cubic spline of hermite. \end{DoxyCompactList}\item 
+float \hyperlink{remap_8cpp_a63cc6920d641d595f80208f9c58ec90e}{h1} (float t)
 \item 
-\mbox{\Hypertarget{remap_8cpp_a63cc6920d641d595f80208f9c58ec90e}\label{remap_8cpp_a63cc6920d641d595f80208f9c58ec90e}} 
-float {\bfseries h1} (float t)
-\item 
-\mbox{\Hypertarget{remap_8cpp_a1239a21e77dfb674d8146aab22592af4}\label{remap_8cpp_a1239a21e77dfb674d8146aab22592af4}} 
-float {\bfseries h2} (float t)
-\item 
-\mbox{\Hypertarget{remap_8cpp_a5fa8448a3349ad696ae744f924f606bb}\label{remap_8cpp_a5fa8448a3349ad696ae744f924f606bb}} 
-float {\bfseries h3} (float t)
-\item 
-\mbox{\Hypertarget{remap_8cpp_a81210d17d4ae68084331e261cf9d2501}\label{remap_8cpp_a81210d17d4ae68084331e261cf9d2501}} 
-float {\bfseries cubic\+\_\+spline} (Point p1, Point p2, Point p3, Point p4, float x)
-\item 
-\mbox{\Hypertarget{remap_8cpp_a388b36985ca7230a6a0ae15f688b17db}\label{remap_8cpp_a388b36985ca7230a6a0ae15f688b17db}} 
-uchar {\bfseries calculate\+\_\+pixel\+\_\+value} (int x, int y, float theta, Point center, Mat src, string interpolation)
-\item 
-\mbox{\Hypertarget{remap_8cpp_a69b8a93827146a211b1610d9dafc90df}\label{remap_8cpp_a69b8a93827146a211b1610d9dafc90df}} 
-void {\bfseries fill\+\_\+dst} (float theta, Point center, Mat src, Mat dst, string interpolation)
-\end{DoxyCompactItemize}
+float \hyperlink{remap_8cpp_a1239a21e77dfb674d8146aab22592af4}{h2} (float t)
+\begin{DoxyCompactList}\small\item\em Basis of cubic spline of hermite. \end{DoxyCompactList}\item 
+float \hyperlink{remap_8cpp_a5fa8448a3349ad696ae744f924f606bb}{h3} (float t)
+\begin{DoxyCompactList}\small\item\em Basis of cubic spline of hermite. \end{DoxyCompactList}\item 
+float \hyperlink{remap_8cpp_a81210d17d4ae68084331e261cf9d2501}{cubic\+\_\+spline} (Point p1, Point p2, Point p3, Point p4, float x)
+\begin{DoxyCompactList}\small\item\em Hermite cubic spline. \end{DoxyCompactList}\item 
+uchar \hyperlink{remap_8cpp_a388b36985ca7230a6a0ae15f688b17db}{calculate\+\_\+pixel\+\_\+value} (int x, int y, float theta, Point center, Mat src, string interpolation)
+\begin{DoxyCompactList}\small\item\em Compute the value of a pixel after rotation. \end{DoxyCompactList}\item 
+void \hyperlink{remap_8cpp_a69b8a93827146a211b1610d9dafc90df}{fill\+\_\+dst} (float theta, Point center, Mat src, Mat dst, string interpolation)
+\begin{DoxyCompactList}\small\item\em Fill the rotated image with pixels values given by the interpolation. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
@@ -46,3 +39,147 @@ Interpolation methods to rotate an image.
 \begin{DoxyAuthor}{Author}
 Daniel Gabaï 
 \end{DoxyAuthor}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{remap_8cpp_a388b36985ca7230a6a0ae15f688b17db}\label{remap_8cpp_a388b36985ca7230a6a0ae15f688b17db}} 
+\index{remap.\+cpp@{remap.\+cpp}!calculate\+\_\+pixel\+\_\+value@{calculate\+\_\+pixel\+\_\+value}}
+\index{calculate\+\_\+pixel\+\_\+value@{calculate\+\_\+pixel\+\_\+value}!remap.\+cpp@{remap.\+cpp}}
+\subsubsection{\texorpdfstring{calculate\+\_\+pixel\+\_\+value()}{calculate\_pixel\_value()}}
+{\footnotesize\ttfamily uchar calculate\+\_\+pixel\+\_\+value (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y,  }\item[{float}]{theta,  }\item[{Point}]{center,  }\item[{Mat}]{src,  }\item[{string}]{interpolation }\end{DoxyParamCaption})}
+
+
+
+Compute the value of a pixel after rotation. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & coordinate on the axis x of the rotated image. \\
+\hline
+{\em y} & coordinate on the axis y of the rotated image. \\
+\hline
+{\em theta} & angle of rotation. \\
+\hline
+{\em center} & center of the rotation. \\
+\hline
+{\em interpolation} & type of interpolation between \char`\"{}neighbor\char`\"{} \char`\"{}bilinear\char`\"{} and \char`\"{}bicubic\char`\"{}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+value of the pixel on the rotated image. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{remap_8cpp_a81210d17d4ae68084331e261cf9d2501}\label{remap_8cpp_a81210d17d4ae68084331e261cf9d2501}} 
+\index{remap.\+cpp@{remap.\+cpp}!cubic\+\_\+spline@{cubic\+\_\+spline}}
+\index{cubic\+\_\+spline@{cubic\+\_\+spline}!remap.\+cpp@{remap.\+cpp}}
+\subsubsection{\texorpdfstring{cubic\+\_\+spline()}{cubic\_spline()}}
+{\footnotesize\ttfamily float cubic\+\_\+spline (\begin{DoxyParamCaption}\item[{Point}]{p1,  }\item[{Point}]{p2,  }\item[{Point}]{p3,  }\item[{Point}]{p4,  }\item[{float}]{x }\end{DoxyParamCaption})}
+
+
+
+Hermite cubic spline. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p1} & first point. \\
+\hline
+{\em p2} & second point. \\
+\hline
+{\em p3} & third point. \\
+\hline
+{\em p4} & fourth point. \\
+\hline
+{\em x} & real number between p2.\+x and p3.\+x. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+evaluation of the cubic spline on x. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{remap_8cpp_a69b8a93827146a211b1610d9dafc90df}\label{remap_8cpp_a69b8a93827146a211b1610d9dafc90df}} 
+\index{remap.\+cpp@{remap.\+cpp}!fill\+\_\+dst@{fill\+\_\+dst}}
+\index{fill\+\_\+dst@{fill\+\_\+dst}!remap.\+cpp@{remap.\+cpp}}
+\subsubsection{\texorpdfstring{fill\+\_\+dst()}{fill\_dst()}}
+{\footnotesize\ttfamily void fill\+\_\+dst (\begin{DoxyParamCaption}\item[{float}]{theta,  }\item[{Point}]{center,  }\item[{Mat}]{src,  }\item[{Mat}]{dst,  }\item[{string}]{interpolation }\end{DoxyParamCaption})}
+
+
+
+Fill the rotated image with pixels values given by the interpolation. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em theta} & angle of rotation. \\
+\hline
+{\em center} & center of the rotation. \\
+\hline
+{\em src} & input image. \\
+\hline
+{\em interpolation} & type of interpolation between \char`\"{}neighbor\char`\"{} \char`\"{}bilinear\char`\"{} and \char`\"{}bicubic\char`\"{}. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{remap_8cpp_a4d4514826e4d2a5c84037375e29db20b}\label{remap_8cpp_a4d4514826e4d2a5c84037375e29db20b}} 
+\index{remap.\+cpp@{remap.\+cpp}!h0@{h0}}
+\index{h0@{h0}!remap.\+cpp@{remap.\+cpp}}
+\subsubsection{\texorpdfstring{h0()}{h0()}}
+{\footnotesize\ttfamily float h0 (\begin{DoxyParamCaption}\item[{float}]{t }\end{DoxyParamCaption})}
+
+
+
+Basis of cubic spline of hermite. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em t} & real number. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+evaluation of the polynomial on t. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{remap_8cpp_a63cc6920d641d595f80208f9c58ec90e}\label{remap_8cpp_a63cc6920d641d595f80208f9c58ec90e}} 
+\index{remap.\+cpp@{remap.\+cpp}!h1@{h1}}
+\index{h1@{h1}!remap.\+cpp@{remap.\+cpp}}
+\subsubsection{\texorpdfstring{h1()}{h1()}}
+{\footnotesize\ttfamily float h1 (\begin{DoxyParamCaption}\item[{float}]{t }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em t} & real number. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+evaluation of the polynomial on t. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{remap_8cpp_a1239a21e77dfb674d8146aab22592af4}\label{remap_8cpp_a1239a21e77dfb674d8146aab22592af4}} 
+\index{remap.\+cpp@{remap.\+cpp}!h2@{h2}}
+\index{h2@{h2}!remap.\+cpp@{remap.\+cpp}}
+\subsubsection{\texorpdfstring{h2()}{h2()}}
+{\footnotesize\ttfamily float h2 (\begin{DoxyParamCaption}\item[{float}]{t }\end{DoxyParamCaption})}
+
+
+
+Basis of cubic spline of hermite. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em t} & real number. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+evaluation of the polynomial on t. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{remap_8cpp_a5fa8448a3349ad696ae744f924f606bb}\label{remap_8cpp_a5fa8448a3349ad696ae744f924f606bb}} 
+\index{remap.\+cpp@{remap.\+cpp}!h3@{h3}}
+\index{h3@{h3}!remap.\+cpp@{remap.\+cpp}}
+\subsubsection{\texorpdfstring{h3()}{h3()}}
+{\footnotesize\ttfamily float h3 (\begin{DoxyParamCaption}\item[{float}]{t }\end{DoxyParamCaption})}
+
+
+
+Basis of cubic spline of hermite. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em t} & real number. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+evaluation of the polynomial on t. 
+\end{DoxyReturn}

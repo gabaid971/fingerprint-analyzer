@@ -1,3 +1,8 @@
+/*!
+ * \file update_rotation.cpp
+ * \brief Basic rotation tool to feed the remap function of openCV
+ * \author Daniel Gabaï
+ */
 #include "update_rotation.hpp"
 
 #include "opencv2/imgcodecs.hpp"
@@ -11,6 +16,15 @@ using namespace cv;
 using namespace std;
 
 
+/*!
+ * \fn void update_map_rotation(Mat map_x, Mat map_y, Point center, float theta)
+ * \brief Modify maps on the x and y axis to make a rotation.
+ *
+ * \param map_x transformation according the x axis.
+ * \param map_y transformation according the y axis.
+ * \param center center of the rotation.
+ * \param theta angle of rotation.  
+ */
 void update_map_rotation(Mat map_x, Mat map_y, Point center, float theta)
 {
   for( int j = 0; j < map_x.rows; j++ )

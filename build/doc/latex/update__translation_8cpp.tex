@@ -1,0 +1,93 @@
+\hypertarget{update__translation_8cpp}{}\section{src/update\+\_\+translation.cpp File Reference}
+\label{update__translation_8cpp}\index{src/update\+\_\+translation.\+cpp@{src/update\+\_\+translation.\+cpp}}
+
+
+Basic translation tool to feed the remap function of open\+CV.  
+
+
+{\ttfamily \#include \char`\"{}update\+\_\+translation.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}opencv2/imgcodecs.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}opencv2/highgui.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}opencv2/imgproc.\+hpp\char`\"{}}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+Include dependency graph for update\+\_\+translation.\+cpp\+:
+% FIG 0
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{update__translation_8cpp_ab790615eaeb5bb97dc26b2f239ffe910}{update\+\_\+map\+\_\+translation\+\_\+x} (Mat map\+\_\+x, Mat map\+\_\+y, int px)
+\begin{DoxyCompactList}\small\item\em Modify maps on the x and y axis to make a translation along x axis. \end{DoxyCompactList}\item 
+void \hyperlink{update__translation_8cpp_a1c5c2f8e58b74ac0081bdfdcc1c1dcd3}{update\+\_\+map\+\_\+translation\+\_\+y} (Mat map\+\_\+x, Mat map\+\_\+y, int py)
+\begin{DoxyCompactList}\small\item\em Modify maps on the x and y axis to make a translation along y axis. \end{DoxyCompactList}\item 
+void \hyperlink{update__translation_8cpp_aa8394c1fc091b51a7a43c803b6303c5d}{update\+\_\+map\+\_\+translation\+\_\+xy} (Mat map\+\_\+x, Mat map\+\_\+y, int px, int py)
+\begin{DoxyCompactList}\small\item\em Modify maps on the x and y axis to make a translation along x and y axis. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Basic translation tool to feed the remap function of open\+CV. 
+
+\begin{DoxyAuthor}{Author}
+Daniel Gabaï 
+\end{DoxyAuthor}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{update__translation_8cpp_ab790615eaeb5bb97dc26b2f239ffe910}\label{update__translation_8cpp_ab790615eaeb5bb97dc26b2f239ffe910}} 
+\index{update\+\_\+translation.\+cpp@{update\+\_\+translation.\+cpp}!update\+\_\+map\+\_\+translation\+\_\+x@{update\+\_\+map\+\_\+translation\+\_\+x}}
+\index{update\+\_\+map\+\_\+translation\+\_\+x@{update\+\_\+map\+\_\+translation\+\_\+x}!update\+\_\+translation.\+cpp@{update\+\_\+translation.\+cpp}}
+\subsubsection{\texorpdfstring{update\+\_\+map\+\_\+translation\+\_\+x()}{update\_map\_translation\_x()}}
+{\footnotesize\ttfamily void update\+\_\+map\+\_\+translation\+\_\+x (\begin{DoxyParamCaption}\item[{Mat}]{map\+\_\+x,  }\item[{Mat}]{map\+\_\+y,  }\item[{int}]{px }\end{DoxyParamCaption})}
+
+
+
+Modify maps on the x and y axis to make a translation along x axis. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em map\+\_\+x} & transformation according the x axis. \\
+\hline
+{\em map\+\_\+y} & transformation according the y axis. \\
+\hline
+{\em px} & translation along the x axis. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{update__translation_8cpp_aa8394c1fc091b51a7a43c803b6303c5d}\label{update__translation_8cpp_aa8394c1fc091b51a7a43c803b6303c5d}} 
+\index{update\+\_\+translation.\+cpp@{update\+\_\+translation.\+cpp}!update\+\_\+map\+\_\+translation\+\_\+xy@{update\+\_\+map\+\_\+translation\+\_\+xy}}
+\index{update\+\_\+map\+\_\+translation\+\_\+xy@{update\+\_\+map\+\_\+translation\+\_\+xy}!update\+\_\+translation.\+cpp@{update\+\_\+translation.\+cpp}}
+\subsubsection{\texorpdfstring{update\+\_\+map\+\_\+translation\+\_\+xy()}{update\_map\_translation\_xy()}}
+{\footnotesize\ttfamily void update\+\_\+map\+\_\+translation\+\_\+xy (\begin{DoxyParamCaption}\item[{Mat}]{map\+\_\+x,  }\item[{Mat}]{map\+\_\+y,  }\item[{int}]{px,  }\item[{int}]{py }\end{DoxyParamCaption})}
+
+
+
+Modify maps on the x and y axis to make a translation along x and y axis. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em map\+\_\+x} & transformation according the x axis. \\
+\hline
+{\em map\+\_\+y} & transformation according the y axis. \\
+\hline
+{\em px} & translation along the x axis. \\
+\hline
+{\em py} & translation along the y axis. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{update__translation_8cpp_a1c5c2f8e58b74ac0081bdfdcc1c1dcd3}\label{update__translation_8cpp_a1c5c2f8e58b74ac0081bdfdcc1c1dcd3}} 
+\index{update\+\_\+translation.\+cpp@{update\+\_\+translation.\+cpp}!update\+\_\+map\+\_\+translation\+\_\+y@{update\+\_\+map\+\_\+translation\+\_\+y}}
+\index{update\+\_\+map\+\_\+translation\+\_\+y@{update\+\_\+map\+\_\+translation\+\_\+y}!update\+\_\+translation.\+cpp@{update\+\_\+translation.\+cpp}}
+\subsubsection{\texorpdfstring{update\+\_\+map\+\_\+translation\+\_\+y()}{update\_map\_translation\_y()}}
+{\footnotesize\ttfamily void update\+\_\+map\+\_\+translation\+\_\+y (\begin{DoxyParamCaption}\item[{Mat}]{map\+\_\+x,  }\item[{Mat}]{map\+\_\+y,  }\item[{int}]{py }\end{DoxyParamCaption})}
+
+
+
+Modify maps on the x and y axis to make a translation along y axis. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em map\+\_\+x} & transformation according the x axis. \\
+\hline
+{\em map\+\_\+y} & transformation according the y axis. \\
+\hline
+{\em py} & translation along the y axis. \\
+\hline
+\end{DoxyParams}

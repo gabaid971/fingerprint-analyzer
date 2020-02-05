@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['step',['step',['../get__skeleton_8cpp.html#a00797f051db039c11cf259d51b6c766e',1,'get_skeleton.cpp']]]
+  ['mean_5fgrey',['mean_grey',['../normalize_8cpp.html#a395a658141adc82f7515ea53303aa124',1,'normalize.cpp']]]
 ];

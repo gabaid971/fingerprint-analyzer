@@ -1,8 +1,6 @@
 var searchData=
 [
-  ['get_5fangle',['get_angle',['../get__center__angle_8cpp.html#a68a10572fc4704c48d57fdec4d6a0fd6',1,'get_center_angle.cpp']]],
-  ['get_5fimage',['get_image',['../get__center__angle_8cpp.html#a58058cdffa4bcd493b429caa6d8c2540',1,'get_center_angle.cpp']]],
-  ['get_5frectangle',['get_rectangle',['../get__center__angle_8cpp.html#a87accf52435981d0a19cb51742c31656',1,'get_center_angle.cpp']]],
-  ['get_5fsize',['get_size',['../get__center__angle_8cpp.html#a6addcb5a75a5a34d67be88ee35eb03f8',1,'get_center_angle.cpp']]],
-  ['get_5fskeleton',['get_skeleton',['../get__skeleton_8cpp.html#a0de7fff8236d598e28a158228c319e9e',1,'get_skeleton.cpp']]]
+  ['fill_5fdst',['fill_dst',['../remap_8cpp.html#a69b8a93827146a211b1610d9dafc90df',1,'remap.cpp']]],
+  ['find_5fcentroid',['find_centroid',['../get__center__angle_8cpp.html#a1bda2d91ffc3bba5898584aeb011b2db',1,'get_center_angle.cpp']]],
+  ['find_5fellipse_5fcenter',['find_ellipse_center',['../get__center__angle_8cpp.html#aa6a2950398b27ec0487c02dd8a96338d',1,'get_center_angle.cpp']]]
 ];

@@ -16,31 +16,68 @@ using namespace cv;
 using namespace std;
 
 
+/*!
+ * \fn float h0(float t)
+ * \brief Basis of cubic spline of hermite.
+ *
+ * \param t real number.
+ * \return evaluation of the polynomial on t.
+ */
 float h0(float t)
 {
     return (2*pow(t, 3) - 3*pow(t, 2) + 1);
 }
 
 
+/*!
+ * \fn float h1(float t)
+ *
+ * \param t real number.
+ * \return evaluation of the polynomial on t.
+ */
 float h1(float t)
 {
     return (-2*pow(t, 3) + 3*pow(t, 2));
 }
 
 
+/*!
+ * \fn float h2(float t)
+ * \brief Basis of cubic spline of hermite.
+ *
+ * \param t real number.
+ * \return evaluation of the polynomial on t.
+ */
 float h2(float t)
 {
     return ( pow(t, 3) - 2*pow(t, 2) + t);
 }
 
 
+/*!
+ * \fn float h3(float t)
+ * \brief Basis of cubic spline of hermite.
+ *
+ * \param t real number.
+ * \return evaluation of the polynomial on t.
+ */
 float h3(float t)
 {
     return (pow(t, 3) - pow(t, 2));
 }
 
 
-
+/*!
+ * \fn float cubic_spline( Point p1, Point p2, Point p3, Point p4, float x)
+ * \brief Hermite cubic spline.
+ *
+ * \param p1 first point.
+ * \param p2 second point.
+ * \param p3 third point.
+ * \param p4 fourth point.
+ * \param x real number between p2.x and p3.x.
+ * \return evaluation of the cubic spline on x.
+ */
 float cubic_spline( Point p1, Point p2, Point p3, Point p4, float x)
 {
   //encode hermite spline evaluated in x
@@ -48,16 +85,21 @@ float cubic_spline( Point p1, Point p2, Point p3, Point p4, float x)
   return ( h0(x_trans)*p2.y + h1(x_trans)*p3.y + h2(x_trans)*(p2.y-p1.y) + h3(x_trans)*(p4.y-p3.y) );
 }
 
-/*
-float cubic_spline( Point p1, Point p2, Point p3, Point p4, float x)
-{ // lagrange polynomials evaluated in x
-  return ( p1.y*((x-p2.x)*(x-p3.x)*(x-p4.x)) / ((p1.x-p2.x)*(p1.x-p3.x)*(p1.x-p4.x)) +  p2.y*((x-p1.x)*(x-p3.x)*(x-p4.x)) / ((p2.x-p1.x)*(p2.x-p3.x)*(p2.x-p4.x)) +  p3.y*((x-p1.x)*(x-p2.x)*(x-p4.x)) / ((p3.x-p1.x)*(p3.x-p2.x)*(p3.x-p4.x)) +  p4.y*((x-p1.x)*(x-p2.x)*(x-p3.x)) / ((p4.x-p1.x)*(p4.x-p2.x)*(p4.x-p3.x)) );
-}
-*/
 
-uchar calculate_pixel_value( int x, int y, float theta, Point center, Mat src,  string interpolation )
+/*!
+ * \fn uchar calculate_pixel_value( int x, int y, float theta, Point center, Mat src,  string interpolation)
+ * \brief Compute the value of a pixel after rotation.
+ *
+ * \param x coordinate on the axis x of the rotated image.
+ * \param y coordinate on the axis y of the rotated image.
+ * \param theta angle of rotation.
+ * \param center center of the rotation.
+ * \param interpolation type of interpolation between "neighbor" "bilinear" and "bicubic".
+ * \return value of the pixel on the rotated image.
+ */
+uchar calculate_pixel_value( int x, int y, float theta, Point center, Mat src,  string interpolation)
 {
-  uchar value = 255; // the value of the rotated pixel, between 0 and 255
+  uchar value = 255;
   float x_p = (float)(cos(-theta)*x + sin(-theta)*y + (1-cos(-theta))*center.x -sin(-theta)*center.y);
   float y_p = (float)(-sin(-theta)*x + cos(-theta)*y + sin(-theta)*center.x + (1-cos(-theta))*center.y);
   int i = (int) floor(x_p);
@@ -116,6 +158,15 @@ uchar calculate_pixel_value( int x, int y, float theta, Point center, Mat src,  
 }
 
 
+/*!
+ * \fn void fill_dst(float theta, Point center, Mat src, Mat dst, string interpolation )
+ * \brief Fill the rotated image with pixels values given by the interpolation.
+ *
+ * \param theta angle of rotation.
+ * \param center center of the rotation.
+ * \param src input image.
+ * \param interpolation type of interpolation between "neighbor" "bilinear" and "bicubic".
+ */
 void fill_dst(float theta, Point center, Mat src, Mat dst, string interpolation )
 {
   for( int j = 0; j < src.rows; j++ )

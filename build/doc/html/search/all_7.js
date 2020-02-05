@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['remap_2ecpp',['remap.cpp',['../remap_8cpp.html',1,'']]]
+  ['mean_5fgrey',['mean_grey',['../normalize_8cpp.html#a395a658141adc82f7515ea53303aa124',1,'normalize.cpp']]]
 ];

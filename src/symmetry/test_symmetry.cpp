@@ -1,4 +1,4 @@
-#include "update_symetry.hpp"
+#include "update_symmetry.hpp"
 
 using namespace cv;
 
@@ -9,18 +9,18 @@ using namespace cv;
 
 
 int main()
-{  /* use of the opencv function remap to make the symetry of a picture
+{  /* use of the opencv function remap to make the symmetry of a picture
   we will reimplement remap later for the rotation*/
   cv::Mat src, dst;
   cv::Mat map_x, map_y;
-  const char* remap_window = "Symetry";
+  const char* remap_window = "symmetry";
   src = imread( "images/papillon.jpg", IMREAD_GRAYSCALE );
   dst.create( src.size(), src.type() );
   map_x.create( src.size(), CV_32FC1 );
   map_y.create( src.size(), CV_32FC1 );
   namedWindow( remap_window, WINDOW_AUTOSIZE );
 
-  update_map_symetry(map_x, map_y);
+  update_map_symmetry(map_x, map_y);
   remap( src, dst, map_x, map_y, INTER_LINEAR, BORDER_CONSTANT, Scalar(255) );
   // Display results
   imshow( remap_window, src );
