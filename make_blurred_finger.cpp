@@ -8,6 +8,13 @@
 using namespace cv;
 using namespace std;
 
+/*
+fn flip(Mat& kernel)
+param kernel: kernel matrix
+param temp: the extra matrix to save matrix during flipping matrix
+return flipped matrix
+*/
+
 void flip(Mat& kernel)
 {
 	Mat temp;
@@ -24,10 +31,29 @@ void flip(Mat& kernel)
 	kernel = temp;
 }
 
+/*
+fn padding(Mat &image, Mat kernel)
+param kernel: kernel matrix
+param image: original image matrix
+param p: the number of row/ column which needs to pad
+return matrix with padding zeros border
+*/
+
 void padding(Mat &image, Mat kernel){
   int p = (kernel.rows - 1)/2;
   copyMakeBorder(image, image, p, p, p, p, 0);
 }
+
+/*
+fn convolution_2D(Mat image, Mat kernel)
+param kernel: kernel matrix
+param image: original image matrix
+param r_i: the number of rows of original image before changing anything
+param c_i: the number of cols of original image before changing anything
+param O: output matrix (convolution matrix)
+param sum: sum of product between kernel matrix and original image (it will be reset when kernel matrix is shifted )
+return matrix after convolution
+*/
 
 void convolution_2D(Mat image, Mat kernel)
 {
