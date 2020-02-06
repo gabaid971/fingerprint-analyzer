@@ -7,6 +7,15 @@
 using namespace cv;
 using namespace std;
 
+/*
+fn DFT(Mat& image, Mat& kernel)
+param image: matrix of original image
+param kernel: matrix of kernel matrix
+param dftSize_col: the number of optimal col to discrete fourier transform
+param dftSize_row: the number of optimal row to discrete fourier transform
+return the matrices which are discrete Fourier transform
+*/
+
 void DFT(Mat& image, Mat& kernel){
 // calculate the optimal DFT size
 int dftSize_col = getOptimalDFTSize(image.cols + kernel.cols - 1);
@@ -21,17 +30,26 @@ dft(image,image);
 dft(kernel,kernel);
 }
 
+/*
+fn inverse(Mat image, Mat kernel,Mat save)
+param image: matrix of original image
+param kernel: matrix of kernel matrix
+param save: matrix of original matrix before changing anything
+param dst: matrix of convolution FFT
+param O: output matrix (convolution FFT  matrix) after cutting the border
+return convolution FFT matrix
+*/
+
 void inverse(Mat image, Mat kernel,Mat save)
 {
 	DFT(image,kernel); //function to calculate DFT
 
   //Multiply element with element
 	Mat dst;
-  //dst.create(save.size());
 	mulSpectrums(image, kernel, dst,false);
 
   //Inverse Discrete Fourier transform
-  idft(dst,dst);
+    idft(dst,dst);
 
 	normalize(dst,dst,255,0,NORM_MINMAX,CV_32SC1);
 
@@ -55,11 +73,11 @@ int main()
         return -1;
     }
 
-		normalize(image,image,1,0,NORM_MINMAX,CV_32FC1);
+	normalize(image,image,1,0,NORM_MINMAX,CV_32FC1);
 
     save = image;
 
-		inverse(image,kernel,save);
+	inverse(image,kernel,save);
 
     return 0;
 }
