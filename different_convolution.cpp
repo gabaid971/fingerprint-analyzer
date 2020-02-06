@@ -8,6 +8,13 @@
 using namespace cv;
 using namespace std;
 
+/*
+fn diff(Mat mt, Mat mt1)
+param mt: the first matrix
+param mt1: the second matrix
+param diff: the result matrix (contains the difference of values between 2 matrix)
+*/
+
 void diff(Mat mt, Mat mt1){
   Mat diff;
   diff.create(mt.size(), CV_32FC1);
@@ -24,7 +31,7 @@ void diff(Mat mt, Mat mt1){
 
 int main(){
   Mat conv, confft;
-
+  //conv is the matrix using convolution
   conv = imread( "convolution.png", IMREAD_GRAYSCALE); // Read the file
   if(conv.empty())                      // Check for invalid input
   {
@@ -32,6 +39,7 @@ int main(){
       return -1;
   }
 
+  //confft is the matrix using convolution FFT
   confft = imread( "convolution_FFT.png", IMREAD_GRAYSCALE); // Read the file
   if(confft.empty())                      // Check for invalid input
   {
