@@ -1,0 +1,67 @@
+\hypertarget{filter__convolution_f_f_t_8cpp}{}\section{src/filter\+\_\+convolution\+F\+FT.cpp File Reference}
+\label{filter__convolution_f_f_t_8cpp}\index{src/filter\+\_\+convolution\+F\+F\+T.\+cpp@{src/filter\+\_\+convolution\+F\+F\+T.\+cpp}}
+
+
+Tools for filter F\+FT convolution.  
+
+
+{\ttfamily \#include \char`\"{}filter\+\_\+convolution\+F\+F\+T.\+hpp\char`\"{}}\newline
+{\ttfamily \#include $<$opencv2/core.\+hpp$>$}\newline
+{\ttfamily \#include $<$opencv2/imgproc.\+hpp$>$}\newline
+{\ttfamily \#include $<$opencv2/imgcodecs.\+hpp$>$}\newline
+{\ttfamily \#include $<$opencv2/highgui.\+hpp$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+Include dependency graph for filter\+\_\+convolution\+F\+F\+T.\+cpp\+:
+% FIG 0
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{filter__convolution_f_f_t_8cpp_af29d8f1a87fb2b58f15ae6e67da20540}{D\+FT} (Mat \&image, Mat \&kernel)
+\item 
+void \hyperlink{filter__convolution_f_f_t_8cpp_ae0140b6f03567fcc0ad534e189d855ef}{inverse} (Mat image, Mat kernel, Mat save)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Tools for filter F\+FT convolution. 
+
+\begin{DoxyAuthor}{Author}
+Thu Thao Huynh 
+\end{DoxyAuthor}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{filter__convolution_f_f_t_8cpp_af29d8f1a87fb2b58f15ae6e67da20540}\label{filter__convolution_f_f_t_8cpp_af29d8f1a87fb2b58f15ae6e67da20540}} 
+\index{filter\+\_\+convolution\+F\+F\+T.\+cpp@{filter\+\_\+convolution\+F\+F\+T.\+cpp}!D\+FT@{D\+FT}}
+\index{D\+FT@{D\+FT}!filter\+\_\+convolution\+F\+F\+T.\+cpp@{filter\+\_\+convolution\+F\+F\+T.\+cpp}}
+\subsubsection{\texorpdfstring{D\+F\+T()}{DFT()}}
+{\footnotesize\ttfamily D\+FT (\begin{DoxyParamCaption}\item[{Mat \&}]{image,  }\item[{Mat \&}]{kernel }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em image} & matrix of original image \\
+\hline
+{\em kernel} & matrix of kernel matrix \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the matrices which are discrete Fourier transform 
+\end{DoxyReturn}
+\mbox{\Hypertarget{filter__convolution_f_f_t_8cpp_ae0140b6f03567fcc0ad534e189d855ef}\label{filter__convolution_f_f_t_8cpp_ae0140b6f03567fcc0ad534e189d855ef}} 
+\index{filter\+\_\+convolution\+F\+F\+T.\+cpp@{filter\+\_\+convolution\+F\+F\+T.\+cpp}!inverse@{inverse}}
+\index{inverse@{inverse}!filter\+\_\+convolution\+F\+F\+T.\+cpp@{filter\+\_\+convolution\+F\+F\+T.\+cpp}}
+\subsubsection{\texorpdfstring{inverse()}{inverse()}}
+{\footnotesize\ttfamily inverse (\begin{DoxyParamCaption}\item[{Mat}]{image,  }\item[{Mat}]{kernel,  }\item[{Mat}]{save }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em image} & matrix of original image \\
+\hline
+{\em kernel} & matrix of kernel matrix \\
+\hline
+{\em save} & matrix of original matrix before changing anything \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+convolution F\+FT matrix 
+\end{DoxyReturn}

@@ -1,11 +1,15 @@
 #ifndef TRANSLATION_X_H
 #define TRANSLATION_X_H
 
-#include "opencv2/imgcodecs.hpp"
-#include "opencv2/highgui.hpp"
-#include "opencv2/imgproc.hpp"
+#include <opencv2/core.hpp>
+#include <opencv2/imgproc.hpp>
+#include <opencv2/imgcodecs.hpp>
+#include <opencv2/highgui.hpp>
 #include <iostream>
+#include <cmath>
 
+using namespace cv;
+using namespace std;
 
 int best_translation(cv::Mat src, cv::Mat obj);
 

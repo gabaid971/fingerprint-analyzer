@@ -2,14 +2,14 @@
 #include "error.hpp"
 #include "get_center_angle.hpp"
 
-#include "opencv2/imgcodecs.hpp"
-#include "opencv2/highgui.hpp"
-#include "opencv2/imgproc.hpp"
+#include <opencv2/core.hpp>
+#include <opencv2/imgproc.hpp>
+#include <opencv2/imgcodecs.hpp>
+#include <opencv2/highgui.hpp>
 #include <iostream>
-#include <math.h>
+#include <cmath>
 
 using namespace cv;
-
 using namespace std;
 
 

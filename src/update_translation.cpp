@@ -10,8 +10,8 @@
 #include "opencv2/imgproc.hpp"
 #include <iostream>
 
+using namespace std;
 using namespace cv;
-
 
 /*!
  * \fn void update_map_translation_x(Mat map_x, Mat map_y, int px)
@@ -71,7 +71,7 @@ void update_map_translation_xy(Mat map_x, Mat map_y, int px, int py)
     for( int i = 0; i < map_x.cols; i++ )
     {
       map_x.at<float>(j,i) = (float)(i + px) ;
-      map_y.at<float>(j,i) = (float)(j + py) ;
+     map_y.at<float>(j,i) = (float)(j + py) ;
     }
   }
 }

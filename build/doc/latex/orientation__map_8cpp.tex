@@ -1,0 +1,52 @@
+\hypertarget{orientation__map_8cpp}{}\section{src/orientation\+\_\+map.cpp File Reference}
+\label{orientation__map_8cpp}\index{src/orientation\+\_\+map.\+cpp@{src/orientation\+\_\+map.\+cpp}}
+
+
+Tools to get the orientation map of a fingerprint image.  
+
+
+{\ttfamily \#include \char`\"{}orientation\+\_\+map.\+hpp\char`\"{}}\newline
+{\ttfamily \#include $<$opencv2/core.\+hpp$>$}\newline
+{\ttfamily \#include $<$opencv2/imgproc.\+hpp$>$}\newline
+{\ttfamily \#include $<$opencv2/imgcodecs.\+hpp$>$}\newline
+{\ttfamily \#include $<$opencv2/highgui.\+hpp$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$cmath$>$}\newline
+Include dependency graph for orientation\+\_\+map.\+cpp\+:
+% FIG 0
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+Mat \hyperlink{orientation__map_8cpp_aa9d02eaa086ab40d69839fe9cd01c74e}{get\+\_\+orientation\+\_\+map} (Mat src, int block\+\_\+size)
+\begin{DoxyCompactList}\small\item\em Computation of the orientation map. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Tools to get the orientation map of a fingerprint image. 
+
+\begin{DoxyAuthor}{Author}
+Daniel Gabaï 
+\end{DoxyAuthor}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{orientation__map_8cpp_aa9d02eaa086ab40d69839fe9cd01c74e}\label{orientation__map_8cpp_aa9d02eaa086ab40d69839fe9cd01c74e}} 
+\index{orientation\+\_\+map.\+cpp@{orientation\+\_\+map.\+cpp}!get\+\_\+orientation\+\_\+map@{get\+\_\+orientation\+\_\+map}}
+\index{get\+\_\+orientation\+\_\+map@{get\+\_\+orientation\+\_\+map}!orientation\+\_\+map.\+cpp@{orientation\+\_\+map.\+cpp}}
+\subsubsection{\texorpdfstring{get\+\_\+orientation\+\_\+map()}{get\_orientation\_map()}}
+{\footnotesize\ttfamily Mat get\+\_\+orientation\+\_\+map (\begin{DoxyParamCaption}\item[{Mat}]{src,  }\item[{int}]{block\+\_\+size }\end{DoxyParamCaption})}
+
+
+
+Computation of the orientation map. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em src} & input image. \\
+\hline
+{\em block\+\_\+size} & size of squared blocks which will divide the image. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the image of the orientation map. 
+\end{DoxyReturn}

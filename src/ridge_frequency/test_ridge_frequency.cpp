@@ -7,6 +7,9 @@
 #include <iostream>
 #include <cmath>
 
+using namespace cv;
+using namespace std;
+
 Mat get_orientation_block(Mat src, int block_size)
 {
   Mat Fx(src.size(), CV_32F);
@@ -89,21 +92,21 @@ vector<float> x_signature(Mat src, int i, int j, int block_size)
 }
 
 
-vector<int> deriv_signature(vector<float> &x_signature)
+vector<float> deriv_signature(vector<float>& x_signature)
 {
-  vector<int> deriv_signature;
+  vector<float> deriv_signatur;
   for (int i = 0; i < (int)(x_signature.size()-1); i++)
   {
-    if (x_signature[i+1] > x_signature[i]) deriv_signature.push_back(1);
-    if (x_signature[i+1] < x_signature[i]) deriv_signature.push_back(-1);
-    if (x_signature[i+1] == x_signature[i]) deriv_signature.push_back(0);
+    if (x_signature[i+1] > x_signature[i]) deriv_signatur.push_back(1);
+    if (x_signature[i+1] < x_signature[i]) deriv_signatur.push_back(-1);
+    if (x_signature[i+1] == x_signature[i]) deriv_signatur.push_back(0);
   }
-  return deriv_signature;
+  return deriv_signatur;
 }
 
-vector<int> second_deriv_signature(vector<int> deriv_signature)
+vector<float> second_deriv_signature(vector<float>& deriv_signature)
 {
-  vector<int> second_deriv_signature;
+  vector<float> second_deriv_signature;
   for (int i = 0; i < (int)(deriv_signature.size()-1); i++)
   {
     second_deriv_signature.push_back(deriv_signature[i+1] - deriv_signature[i]);
@@ -112,15 +115,15 @@ vector<int> second_deriv_signature(vector<int> deriv_signature)
   return second_deriv_signature;
 }
 
-float frequency(vector<float> x_signature)
+float frequency(vector<float>& x_signature)
 {
-  vector<int> deriv_signature = deriv_signature(x_signature);
-  vector<int> second_deriv_signature = second_deriv_signature(deriv_signature);
+  vector<float> deriv_signatur = deriv_signature(x_signature);
+  vector<float> second_deriv_signatur = second_deriv_signature(deriv_signatur);
   int nb_of_peaks = 0;
-  vector<int> position_of_peaks;
-  for (int i = 0; i < (int)(second_deriv_signature.size()); i++)
+  vector<float> position_of_peaks;
+  for (int i = 0; i < (int)(second_deriv_signatur.size()); i++)
   {
-    if (second_deriv_signature[i] == 2)
+    if (second_deriv_signatur[i] == 2)
     {
       nb_of_peaks += 1;
       position_of_peaks.push_back(i);
@@ -150,11 +153,11 @@ int main()
   vague.push_back(1);
   vague.push_back(2);
   vague.push_back(3);
-  vector<int> vagua = deriv_signature(vague);
-  //float ridge_frequency = frequency(vague);
-  //cout <<" ridge_frequency: " << ridge_frequency << endl;
-  //vector<float> essai = x_signature(src, 8, 8, 8);
-  //vector<float> deriv_essai = deriv_signature(essai);
+  //vector<float> vagua = deriv_signature(vague);
+  float ridge_frequency = frequency(vague);
+  cout <<" ridge_frequency: " << ridge_frequency << endl;
+  vector<float> essai = x_signature(src, 8, 8, 8);
+  vector<float> deriv_essai = deriv_signature(essai);
   //vector<float> second_deriv_essai = second_deriv_signature(deriv_essai);
   //Mat smoothed = get_orientation_block(src, 8);
   //imshow( "Orientation map", smoothed );

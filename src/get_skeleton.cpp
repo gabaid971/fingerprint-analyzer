@@ -15,7 +15,6 @@
 using namespace cv;
 using namespace std;
 
-
 /*!
  * \fn bool ctb(Mat src, int i, int j)
  * \brief Convert to boolean.
@@ -102,13 +101,14 @@ bool check_3(Mat src, int i, int j, bool state)
  */
 vector<Point> step(Mat src, bool state, vector<Point> to_erase)
 {
-  for (int i = 1; i < src.cols - 1 ; i++)
+  for( int i = 1; i < src.cols - 1 ; i++ )
   {
-    for (int j = 1 ; j < src.rows - 1; j++)
+    for( int j = 1 ; j < src.rows - 1; j++ )
     {
-      if (src.at<uchar>(j,i) == 0)
+      if( src.at<uchar>(j,i) == 0 )
       {
-        if (check_1(src, i, j) && check_2(src, i, j) && check_3(src, i, j, state)){
+        if( check_1(src, i, j) && check_2(src, i, j) && check_3(src, i, j, state) )
+        {
           to_erase.push_back(Point(i,j));
         }
       }
@@ -127,16 +127,16 @@ vector<Point> step(Mat src, bool state, vector<Point> to_erase)
  */
 Mat get_skeleton(Mat src)
 {
-  for (int l = 1; l < 100; l++ )
+  for( int l = 1; l < 100; l++ )
   {
     vector<Point> to_erase;
     to_erase = step(src, 1, to_erase);
-    for (unsigned int i = 0; i < to_erase.size(); i++)
+    for( unsigned int i = 0; i < to_erase.size(); i++ )
     {
       src.at<uchar>(to_erase[i].y, to_erase[i].x) = 255;
     }
     to_erase = step(src, 0, to_erase);
-    for (unsigned int i = 0; i < to_erase.size(); i++)
+    for( unsigned int i = 0; i < to_erase.size(); i++ )
     {
       src.at<uchar>(to_erase[i].y, to_erase[i].x) = 255;
     }

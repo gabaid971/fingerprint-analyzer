@@ -6,12 +6,15 @@
  */
 #include "get_center_angle.hpp"
 
-#include "opencv2/imgcodecs.hpp"
-#include "opencv2/highgui.hpp"
-#include "opencv2/imgproc.hpp"
+#include <opencv2/core.hpp>
+#include <opencv2/imgproc.hpp>
+#include <opencv2/imgcodecs.hpp>
+#include <opencv2/highgui.hpp>
 #include <iostream>
-#include <math.h>
+#include <cmath>
 
+using namespace std;
+using namespace cv;
 
 /*!
  * \fn Point find_centroid(Mat src)
@@ -60,18 +63,19 @@ RotatedRect get_rectangle(Mat src)
   Sobel( thr, final, -1, 1, 1 );
   vector<Point> vec;
   for( int j = 0; j < final.rows; j++ )
-    { for( int i = 0; i < final.cols; i++ )
-     {
-       if ( final.at<uchar>(j,i) == 255 )
-          {
-          vec.push_back( Point(i, j) );
-          }
+  {
+    for( int i = 0; i < final.cols; i++ )
+    {
+      if( final.at<uchar>(j,i) == 255 )
+      {
+        vec.push_back( Point(i, j) );
       }
     }
+  }
   RotatedRect rect = fitEllipse(vec);
   Point2f vertices[4];
   rect.points(vertices);
-  for (int i = 0; i < 4; i++)
+  for( int i = 0; i < 4; i++ )
     line(final, vertices[i], vertices[(i+1)%4], Scalar(255));
   return rect;
 }
@@ -95,18 +99,19 @@ Mat get_image(Mat src)
   Sobel( thr, final, -1, 1, 1 );
   vector<Point> vec;
   for( int j = 0; j < final.rows; j++ )
-    { for( int i = 0; i < final.cols; i++ )
-     {
-       if ( final.at<uchar>(j,i) == 255 )
-          {
-          vec.push_back( Point(i, j) );
-          }
+  {
+    for( int i = 0; i < final.cols; i++ )
+    {
+      if ( final.at<uchar>(j,i) == 255 )
+      {
+        vec.push_back( Point(i, j) );
       }
     }
+  }
   RotatedRect rect = fitEllipse(vec);
   Point2f vertices[4];
   rect.points(vertices);
-  for (int i = 0; i < 4; i++)
+  for( int i = 0; i < 4; i++ )
     line(final, vertices[i], vertices[(i+1)%4], Scalar(255));
   return final;
 }

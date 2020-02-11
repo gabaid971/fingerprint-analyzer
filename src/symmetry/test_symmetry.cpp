@@ -1,12 +1,14 @@
 #include "update_symmetry.hpp"
 
-using namespace cv;
-
-#include "opencv2/imgcodecs.hpp"
-#include "opencv2/highgui.hpp"
-#include "opencv2/imgproc.hpp"
+#include <opencv2/core.hpp>
+#include <opencv2/imgproc.hpp>
+#include <opencv2/imgcodecs.hpp>
+#include <opencv2/highgui.hpp>
 #include <iostream>
+#include <cmath>
 
+using namespace cv;
+using namespace std;
 
 int main()
 {  /* use of the opencv function remap to make the symmetry of a picture

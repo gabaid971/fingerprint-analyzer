@@ -1,0 +1,77 @@
+\hypertarget{minutiae_8cpp}{}\section{src/minutiae.cpp File Reference}
+\label{minutiae_8cpp}\index{src/minutiae.\+cpp@{src/minutiae.\+cpp}}
+
+
+Tools to find some feature points on skeleton.  
+
+
+{\ttfamily \#include \char`\"{}minutiae.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}get\+\_\+skeleton.\+hpp\char`\"{}}\newline
+{\ttfamily \#include $<$opencv2/core.\+hpp$>$}\newline
+{\ttfamily \#include $<$opencv2/imgproc.\+hpp$>$}\newline
+{\ttfamily \#include $<$opencv2/imgcodecs.\+hpp$>$}\newline
+{\ttfamily \#include $<$opencv2/highgui.\+hpp$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$cmath$>$}\newline
+Include dependency graph for minutiae.\+cpp\+:
+% FIG 0
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{minutiae_8cpp_a54c8e659ff17b07e55c288d69b2898d9}{crossing\+\_\+number} (Mat src, int i, int j)
+\begin{DoxyCompactList}\small\item\em Compute the crossing number. \end{DoxyCompactList}\item 
+Mat \hyperlink{minutiae_8cpp_af9f4daebe525f1acc9a19be8ee4fcb5c}{find\+\_\+minutiae} (Mat src, int value)
+\begin{DoxyCompactList}\small\item\em Creates an image with feature points on a skeleton. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Tools to find some feature points on skeleton. 
+
+\begin{DoxyAuthor}{Author}
+Daniel Gabaï 
+\end{DoxyAuthor}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{minutiae_8cpp_a54c8e659ff17b07e55c288d69b2898d9}\label{minutiae_8cpp_a54c8e659ff17b07e55c288d69b2898d9}} 
+\index{minutiae.\+cpp@{minutiae.\+cpp}!crossing\+\_\+number@{crossing\+\_\+number}}
+\index{crossing\+\_\+number@{crossing\+\_\+number}!minutiae.\+cpp@{minutiae.\+cpp}}
+\subsubsection{\texorpdfstring{crossing\+\_\+number()}{crossing\_number()}}
+{\footnotesize\ttfamily int crossing\+\_\+number (\begin{DoxyParamCaption}\item[{Mat}]{src,  }\item[{int}]{i,  }\item[{int}]{j }\end{DoxyParamCaption})}
+
+
+
+Compute the crossing number. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em src} & input image (skeleton). \\
+\hline
+{\em i} & position on x axis. \\
+\hline
+{\em j} & position on y axis. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+crossing number. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{minutiae_8cpp_af9f4daebe525f1acc9a19be8ee4fcb5c}\label{minutiae_8cpp_af9f4daebe525f1acc9a19be8ee4fcb5c}} 
+\index{minutiae.\+cpp@{minutiae.\+cpp}!find\+\_\+minutiae@{find\+\_\+minutiae}}
+\index{find\+\_\+minutiae@{find\+\_\+minutiae}!minutiae.\+cpp@{minutiae.\+cpp}}
+\subsubsection{\texorpdfstring{find\+\_\+minutiae()}{find\_minutiae()}}
+{\footnotesize\ttfamily Mat find\+\_\+minutiae (\begin{DoxyParamCaption}\item[{Mat}]{src,  }\item[{int}]{value }\end{DoxyParamCaption})}
+
+
+
+Creates an image with feature points on a skeleton. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em src} & input image. \\
+\hline
+{\em value} & value of the crossing number (1 for ending points, 3 for bifurcation points) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+image with feature points wished. 
+\end{DoxyReturn}

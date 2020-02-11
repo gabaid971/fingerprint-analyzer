@@ -6,13 +6,15 @@
 #include "finger_pressure.hpp"
 #include "get_center_angle.hpp"
 
-#include "opencv2/imgcodecs.hpp"
-#include "opencv2/highgui.hpp"
-#include "opencv2/imgproc.hpp"
+#include <opencv2/core.hpp>
+#include <opencv2/imgproc.hpp>
+#include <opencv2/imgcodecs.hpp>
+#include <opencv2/highgui.hpp>
 #include <iostream>
-#include <math.h>
-using namespace cv;
+#include <cmath>
 
+using namespace std;
+using namespace cv;
 
 /*!
  * \fn double distance_to(Point p1, Point p2)
@@ -24,7 +26,7 @@ using namespace cv;
  */
 double distance_to(Point p1, Point p2)
 {
-    return sqrt((p1.x-p2.x)*(p1.x-p2.x)+ (p1.y-p2.y)*(p1.y-p2.y));
+  return sqrt((p1.x-p2.x)*(p1.x-p2.x)+ (p1.y-p2.y)*(p1.y-p2.y));
 }
 
 
@@ -51,7 +53,8 @@ double c(double x, double y, float alpha, float r)
  * \param diff the difference between the two images to compare.
  * \return normalized quadratic error.
  */
-uchar new_pixel(int i, int j, Point center, Mat trans, float alpha, float r){
+uchar new_pixel(int i, int j, Point center, Mat trans, float alpha, float r)
+{
   return (uchar)( c( abs(i-center.x), abs(j-center.y), alpha, r )*trans.at<uchar>(j,i));
 }
 

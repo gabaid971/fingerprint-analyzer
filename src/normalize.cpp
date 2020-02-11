@@ -15,7 +15,6 @@
 using namespace cv;
 using namespace std;
 
-
 /*!
  * \fn float mean_grey(Mat src)
  * \brief Calculus of the mean.
@@ -26,9 +25,9 @@ using namespace std;
 float mean_grey(Mat src)
 {
   float sum = 0;
-  for (int i = 0; i < src.cols  ; i++)
+  for( int i = 0; i < src.cols  ; i++ )
   {
-    for (int j = 0 ; j < src.rows ; j++)
+    for( int j = 0 ; j < src.rows ; j++ )
     {
       sum += (float)src.at<uchar>(j,i);
     }
@@ -48,9 +47,9 @@ float var_grey(Mat src)
 {
   float sum = 0;
   float M = mean_grey(src);
-  for (int i = 0; i < src.cols  ; i++)
+  for( int i = 0; i < src.cols  ; i++ )
   {
-    for (int j = 0 ; j < src.rows ; j++)
+    for( int j = 0 ; j < src.rows ; j++ )
     {
       sum += ((float)src.at<uchar>(j,i) - M )* ((float)src.at<uchar>(j,i) - M);
     }
@@ -72,15 +71,15 @@ Mat normalize(Mat src, float mean, float var)
 {
   float M = mean_grey(src);
   float V = var_grey(src);
-  for (int i = 0; i < src.cols  ; i++)
+  for( int i = 0; i < src.cols  ; i++ )
   {
-    for (int j = 0 ; j < src.rows ; j++)
+    for( int j = 0 ; j < src.rows ; j++ )
     {
-      if ( (float)src.at<uchar>(j,i) <= M )
+      if( (float)src.at<uchar>(j,i) <= M )
       {
         src.at<uchar>(j,i) = (uchar)(mean - sqrt( (var*((float)src.at<uchar>(j,i) - M)*((float)src.at<uchar>(j,i) - M))/V) );
       }
-      if ( M < (float)src.at<uchar>(j,i) )
+      if( M < (float)src.at<uchar>(j,i) )
       {
         src.at<uchar>(j,i) = (uchar)(mean + sqrt( (var*((float)src.at<uchar>(j,i) - M)*((float)src.at<uchar>(j,i) - M))/V) );
       }

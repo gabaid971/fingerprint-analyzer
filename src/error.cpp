@@ -23,15 +23,16 @@ using namespace std;
  * \return normalized quadratic error.
  */
 float err(Mat diff)
-{ 
-    float sum = 0;
-    float norm = 0;
-    for( int j = 0; j < diff.rows; j++ )
-      { for( int i = 0; i < diff.cols; i++ )
-         {
-             norm = norm + 255*255;
-             sum = sum + (int)(diff.at<uchar>(j,i)*diff.at<uchar>(j,i));
-         }
-      }
-    return ((float)(sum/norm));
+{
+  float sum = 0;
+  float norm = 0;
+  for( int j = 0; j < diff.rows; j++ )
+  {
+    for( int i = 0; i < diff.cols; i++ )
+    {
+      norm = norm + 255*255;
+      sum = sum + (int)(diff.at<uchar>(j,i)*diff.at<uchar>(j,i));
+    }
+  }
+  return ((float)(sum/norm));
 }

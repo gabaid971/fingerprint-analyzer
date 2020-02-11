@@ -1,3 +1,8 @@
+/*!
+ * \file test_remap.cpp
+ * \brief Test of the reimplementation of the remap function for the rotation
+ * \author Daniel Gabaï
+ */
 #include "remap.hpp"
 #include "error.hpp"
 #include "get_center_angle.hpp"
@@ -13,14 +18,16 @@
 using namespace cv;
 using namespace std;
 
-
 int main()
 {
+  // Initialization of the time counter
   int time = 0;
   Mat src;
   src = imread( "images/fingerprint.jpg", IMREAD_GRAYSCALE );
-  Point centroid = find_centroid( src ); // center of rotation
-  float theta =  0.68912 ; // angle of rotation
+  // Center of rotation
+  Point centroid = find_centroid( src );
+  // Angle of rotation
+  float theta =  0.68912 ;
   Mat dst;
   cout << "Which type of interpolation do you want? (neighbor, bilinear, bicubic) " << endl;
   string interpolation = "bicubic";

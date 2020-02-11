@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['var_5fgrey',['var_grey',['../normalize_8cpp.html#a44006b87936af56537adf5b8cb328e5e',1,'normalize.cpp']]]
+  ['step',['step',['../get__skeleton_8cpp.html#a00797f051db039c11cf259d51b6c766e',1,'get_skeleton.cpp']]]
 ];
