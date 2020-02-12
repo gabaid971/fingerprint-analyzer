@@ -21,8 +21,14 @@ void \hyperlink{filter__convolution_8cpp_a4c1e58bd63f58b614ddc3bf3b92a6367}{flip
 \item 
 void \hyperlink{filter__convolution_8cpp_a4ce2092cdf2bfda996820b2a56feaa3e}{padding} (Mat \&image, Mat kernel)
 \item 
-\mbox{\Hypertarget{filter__convolution_8cpp_adf9a8b40e304fa780af7f33bc17c94a4}\label{filter__convolution_8cpp_adf9a8b40e304fa780af7f33bc17c94a4}} 
-void {\bfseries convolution\+\_\+2D} (Mat image, Mat kernel)
+\mbox{\Hypertarget{filter__convolution_8cpp_ab2de4654f44a9c7c84d736f8e4d0665a}\label{filter__convolution_8cpp_ab2de4654f44a9c7c84d736f8e4d0665a}} 
+void {\bfseries convolution\+\_\+2D} (Mat image, Mat kernel, string name)
+\item 
+void \hyperlink{filter__convolution_8cpp_af29d8f1a87fb2b58f15ae6e67da20540}{D\+FT} (Mat \&image, Mat \&kernel)
+\item 
+void \hyperlink{filter__convolution_8cpp_ae0140b6f03567fcc0ad534e189d855ef}{inverse} (Mat image, Mat kernel, Mat save)
+\item 
+void \hyperlink{filter__convolution_8cpp_a7a614cd637c0892efc6ac4a55d157fd6}{diff} (Mat mt, Mat mt1)
 \end{DoxyCompactItemize}
 
 
@@ -35,6 +41,35 @@ Thu Thao Huynh
 
 
 \subsection{Function Documentation}
+\mbox{\Hypertarget{filter__convolution_8cpp_af29d8f1a87fb2b58f15ae6e67da20540}\label{filter__convolution_8cpp_af29d8f1a87fb2b58f15ae6e67da20540}} 
+\index{filter\+\_\+convolution.\+cpp@{filter\+\_\+convolution.\+cpp}!D\+FT@{D\+FT}}
+\index{D\+FT@{D\+FT}!filter\+\_\+convolution.\+cpp@{filter\+\_\+convolution.\+cpp}}
+\subsubsection{\texorpdfstring{D\+F\+T()}{DFT()}}
+{\footnotesize\ttfamily D\+FT (\begin{DoxyParamCaption}\item[{Mat \&}]{image,  }\item[{Mat \&}]{kernel }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em image} & matrix of original image \\
+\hline
+{\em kernel} & matrix of kernel matrix \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the matrices which are discrete Fourier transform 
+\end{DoxyReturn}
+\mbox{\Hypertarget{filter__convolution_8cpp_a7a614cd637c0892efc6ac4a55d157fd6}\label{filter__convolution_8cpp_a7a614cd637c0892efc6ac4a55d157fd6}} 
+\index{filter\+\_\+convolution.\+cpp@{filter\+\_\+convolution.\+cpp}!diff@{diff}}
+\index{diff@{diff}!filter\+\_\+convolution.\+cpp@{filter\+\_\+convolution.\+cpp}}
+\subsubsection{\texorpdfstring{diff()}{diff()}}
+{\footnotesize\ttfamily void diff (\begin{DoxyParamCaption}\item[{Mat}]{mt,  }\item[{Mat}]{mt1 }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em mt} & the first matrix \\
+\hline
+{\em mt1} & the second matrix \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{filter__convolution_8cpp_a4c1e58bd63f58b614ddc3bf3b92a6367}\label{filter__convolution_8cpp_a4c1e58bd63f58b614ddc3bf3b92a6367}} 
 \index{filter\+\_\+convolution.\+cpp@{filter\+\_\+convolution.\+cpp}!flip@{flip}}
 \index{flip@{flip}!filter\+\_\+convolution.\+cpp@{filter\+\_\+convolution.\+cpp}}
@@ -48,6 +83,24 @@ Thu Thao Huynh
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 flipped matrix 
+\end{DoxyReturn}
+\mbox{\Hypertarget{filter__convolution_8cpp_ae0140b6f03567fcc0ad534e189d855ef}\label{filter__convolution_8cpp_ae0140b6f03567fcc0ad534e189d855ef}} 
+\index{filter\+\_\+convolution.\+cpp@{filter\+\_\+convolution.\+cpp}!inverse@{inverse}}
+\index{inverse@{inverse}!filter\+\_\+convolution.\+cpp@{filter\+\_\+convolution.\+cpp}}
+\subsubsection{\texorpdfstring{inverse()}{inverse()}}
+{\footnotesize\ttfamily inverse (\begin{DoxyParamCaption}\item[{Mat}]{image,  }\item[{Mat}]{kernel,  }\item[{Mat}]{save }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em image} & matrix of original image \\
+\hline
+{\em kernel} & matrix of kernel matrix \\
+\hline
+{\em save} & matrix of original matrix before changing anything \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+convolution F\+FT matrix 
 \end{DoxyReturn}
 \mbox{\Hypertarget{filter__convolution_8cpp_a4ce2092cdf2bfda996820b2a56feaa3e}\label{filter__convolution_8cpp_a4ce2092cdf2bfda996820b2a56feaa3e}} 
 \index{filter\+\_\+convolution.\+cpp@{filter\+\_\+convolution.\+cpp}!padding@{padding}}

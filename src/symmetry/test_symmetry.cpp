@@ -1,3 +1,8 @@
+/*!
+ * \file test_symmetry.cpp
+ * \brief Simple symmetry of an image with the open cv function "remap"
+ * \author Daniel Gabaï
+ */
 #include "update_symmetry.hpp"
 
 #include <opencv2/core.hpp>

@@ -1,3 +1,8 @@
+/*!
+ * \file test_skeleton.cpp
+ * \brief We test our thinning algorithm on a fingerprint image to get the skeleton
+ * \author Daniel Gabaï
+ */
 #include "get_skeleton.hpp"
 #include "normalize.hpp"
 

@@ -93,14 +93,91 @@ Functions</h2></td></tr>
 <tr class="separator:a4c1e58bd63f58b614ddc3bf3b92a6367"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4ce2092cdf2bfda996820b2a56feaa3e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="filter__convolution_8cpp.html#a4ce2092cdf2bfda996820b2a56feaa3e">padding</a> (Mat &amp;image, Mat kernel)</td></tr>
 <tr class="separator:a4ce2092cdf2bfda996820b2a56feaa3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adf9a8b40e304fa780af7f33bc17c94a4"><td class="memItemLeft" align="right" valign="top"><a id="adf9a8b40e304fa780af7f33bc17c94a4"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>convolution_2D</b> (Mat image, Mat kernel)</td></tr>
-<tr class="separator:adf9a8b40e304fa780af7f33bc17c94a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab2de4654f44a9c7c84d736f8e4d0665a"><td class="memItemLeft" align="right" valign="top"><a id="ab2de4654f44a9c7c84d736f8e4d0665a"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>convolution_2D</b> (Mat image, Mat kernel, string name)</td></tr>
+<tr class="separator:ab2de4654f44a9c7c84d736f8e4d0665a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af29d8f1a87fb2b58f15ae6e67da20540"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="filter__convolution_8cpp.html#af29d8f1a87fb2b58f15ae6e67da20540">DFT</a> (Mat &amp;image, Mat &amp;kernel)</td></tr>
+<tr class="separator:af29d8f1a87fb2b58f15ae6e67da20540"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae0140b6f03567fcc0ad534e189d855ef"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="filter__convolution_8cpp.html#ae0140b6f03567fcc0ad534e189d855ef">inverse</a> (Mat image, Mat kernel, Mat save)</td></tr>
+<tr class="separator:ae0140b6f03567fcc0ad534e189d855ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7a614cd637c0892efc6ac4a55d157fd6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="filter__convolution_8cpp.html#a7a614cd637c0892efc6ac4a55d157fd6">diff</a> (Mat mt, Mat mt1)</td></tr>
+<tr class="separator:a7a614cd637c0892efc6ac4a55d157fd6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Tools for filter convolution. </p>
 <dl class="section author"><dt>Author</dt><dd>Thu Thao Huynh </dd></dl>
 </div><h2 class="groupheader">Function Documentation</h2>
+<a id="af29d8f1a87fb2b58f15ae6e67da20540"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af29d8f1a87fb2b58f15ae6e67da20540">&#9670;&nbsp;</a></span>DFT()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DFT </td>
+          <td>(</td>
+          <td class="paramtype">Mat &amp;&#160;</td>
+          <td class="paramname"><em>image</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Mat &amp;&#160;</td>
+          <td class="paramname"><em>kernel</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">image</td><td>matrix of original image </td></tr>
+    <tr><td class="paramname">kernel</td><td>matrix of kernel matrix </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the matrices which are discrete Fourier transform </dd></dl>
+
+</div>
+</div>
+<a id="a7a614cd637c0892efc6ac4a55d157fd6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7a614cd637c0892efc6ac4a55d157fd6">&#9670;&nbsp;</a></span>diff()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void diff </td>
+          <td>(</td>
+          <td class="paramtype">Mat&#160;</td>
+          <td class="paramname"><em>mt</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Mat&#160;</td>
+          <td class="paramname"><em>mt1</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">mt</td><td>the first matrix </td></tr>
+    <tr><td class="paramname">mt1</td><td>the second matrix </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="a4c1e58bd63f58b614ddc3bf3b92a6367"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4c1e58bd63f58b614ddc3bf3b92a6367">&#9670;&nbsp;</a></span>flip()</h2>
 
@@ -123,6 +200,49 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>convolution_2D</b> (M
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>flipped matrix </dd></dl>
+
+</div>
+</div>
+<a id="ae0140b6f03567fcc0ad534e189d855ef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae0140b6f03567fcc0ad534e189d855ef">&#9670;&nbsp;</a></span>inverse()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">inverse </td>
+          <td>(</td>
+          <td class="paramtype">Mat&#160;</td>
+          <td class="paramname"><em>image</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Mat&#160;</td>
+          <td class="paramname"><em>kernel</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Mat&#160;</td>
+          <td class="paramname"><em>save</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">image</td><td>matrix of original image </td></tr>
+    <tr><td class="paramname">kernel</td><td>matrix of kernel matrix </td></tr>
+    <tr><td class="paramname">save</td><td>matrix of original matrix before changing anything </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>convolution FFT matrix </dd></dl>
 
 </div>
 </div>

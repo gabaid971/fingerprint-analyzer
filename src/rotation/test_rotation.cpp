@@ -1,3 +1,8 @@
+/*!
+ * \file test_rotation.cpp
+ * \brief Rotation with opencv function "remap"
+ * \author Daniel Gabaï
+ */
 #include "update_rotation.hpp"
 #include "error.hpp"
 #include "get_center_angle.hpp"
