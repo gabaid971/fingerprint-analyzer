@@ -46,7 +46,8 @@ void flip(Mat& kernel)
 * \return matrix with padding zeros border
 */
 
-void padding(Mat &image, Mat kernel){
+void padding(Mat &image, Mat kernel)
+{
   int p = (kernel.rows - 1)/2;
   copyMakeBorder(image, image, p, p, p, p, 0);
 }
@@ -58,7 +59,7 @@ void padding(Mat &image, Mat kernel){
 * \param image: original image matrix
 * \return matrix after convolution
 */
-void convolution_2D(Mat image, Mat kernel)
+void convolution_2D(Mat image, Mat kernel, string name)
 {
   int r_i = image.rows - kernel.rows + 1 ;
   int c_i = image.cols - kernel.cols + 1;
@@ -81,6 +82,74 @@ void convolution_2D(Mat image, Mat kernel)
   }
 	normalize(O,O,255,0,NORM_MINMAX,CV_32SC1);
 
-	imshow("Convolution",O); 
-  waitKey(0);
+	imwrite (name ,O);
+}
+
+/*!
+* \fn DFT(Mat& image, Mat& kernel)
+* \param image: matrix of original image
+* \param kernel: matrix of kernel matrix
+* \return the matrices which are discrete Fourier transform
+*/
+void DFT(Mat& image, Mat& kernel)
+{
+  // calculate the optimal DFT size
+  int dftSize_col = getOptimalDFTSize(image.cols + kernel.cols - 1);
+  int dftSize_row = getOptimalDFTSize(image.rows + kernel.rows - 1);
+
+  //padding zero to get to optimal size
+  copyMakeBorder(image, image, 0, dftSize_row - image.rows, 0, dftSize_col - image.cols,0);
+  copyMakeBorder(kernel, kernel, 0, dftSize_row - kernel.rows, 0, dftSize_col - kernel.cols,0);
+
+  //Discrete Fourier transform image and kernel
+  dft(image,image);
+  dft(kernel,kernel);
+}
+
+
+/*!
+* \fn inverse(Mat image, Mat kernel,Mat save)
+* \param image: matrix of original image
+* \param kernel: matrix of kernel matrix
+* \param save: matrix of original matrix before changing anything
+* \return convolution FFT matrix
+*/
+void inverse(Mat image, Mat kernel,Mat save)
+{
+	DFT(image,kernel); //function to calculate DFT
+
+  //Multiply element with element
+	Mat dst;
+	mulSpectrums(image, kernel, dst,false);
+
+  //Inverse Discrete Fourier transform
+  idft(dst,dst);
+
+	normalize(dst,dst,255,0,NORM_MINMAX,CV_32SC1);
+
+	//Cut to get the same size with original one
+	Mat O(dst,Rect(0,0,save.cols,save.rows));
+
+	imwrite( "convolution_FFT.png", O); //save image
+}
+
+/*!
+* \fn void diff(Mat mt, Mat mt1)
+* \param mt: the first matrix
+* \param mt1: the second matrix
+*/
+void diff(Mat mt, Mat mt1)
+{
+  Mat diff;
+  diff.create(mt.size(), CV_32FC1);
+  for (int i = 0; i < mt.rows; i++)
+  {
+    for (int j = 0; j < mt.cols; j++)
+    {
+      diff.at<float>(i,j) = mt.at<float>(i,j) - mt1.at<float>(i,j);
+    }
+  }
+
+  normalize(diff,diff,255,0,NORM_MINMAX,CV_32SC1);
+  imwrite( "Different.png", diff); //save image
 }

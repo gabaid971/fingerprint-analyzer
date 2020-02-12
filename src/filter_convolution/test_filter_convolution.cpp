@@ -34,7 +34,7 @@ int main()
 
     flip(kernel);
     padding(image, kernel);
-    convolution_2D(image,kernel);
+    convolution_2D(image,kernel, "convolution.png");
 
     waitKey(0);
     return 0;

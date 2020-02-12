@@ -3,7 +3,7 @@
  * \brief Tools for filter FFT convolution.
  * \author Thu Thao Huynh
  */
- #include "filter_convolutionFFT.hpp"
+ #include "filter_convolution.hpp"
 
 #include <opencv2/core.hpp>
 #include <opencv2/imgproc.hpp>
