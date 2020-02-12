@@ -73,7 +73,7 @@ void convolution_2D(Mat image, Mat kernel)
           sum = sum + kernel.at<float>(k,l)* image.at<float>(i+k, j+l);
         }
       }
-			O.at<float>(i,j) = sum;
+	O.at<float>(i,j) = sum;
     }
   }
 	normalize(O,O,255,0,NORM_MINMAX,CV_32SC1);
@@ -88,12 +88,12 @@ int main()
 		kernel = Mat::ones(kernel_size, kernel_size, CV_32F)/(float)(kernel_size*kernel_size);
 
     image = imread( "clean_finger.png", IMREAD_GRAYSCALE); // Read the file
-		if(image.empty())                      // Check for invalid input
+	if(image.empty())                      // Check for invalid input
     {
         cout <<  "Could not open or find the image" << endl ;
         return -1;
     }
-		normalize(image,image,1,0,NORM_MINMAX,CV_32FC1);
+	normalize(image,image,1,0,NORM_MINMAX,CV_32FC1);
 
     flip(kernel);
     padding(image, kernel);
