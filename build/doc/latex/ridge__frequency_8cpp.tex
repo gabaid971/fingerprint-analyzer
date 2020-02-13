@@ -1,0 +1,139 @@
+\hypertarget{ridge__frequency_8cpp}{}\section{src/ridge\+\_\+frequency.cpp File Reference}
+\label{ridge__frequency_8cpp}\index{src/ridge\+\_\+frequency.\+cpp@{src/ridge\+\_\+frequency.\+cpp}}
+
+
+Tools to get the frequency of a block to apply the Gabor filter (not done in this project)  
+
+
+{\ttfamily \#include \char`\"{}normalize.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}ridge\+\_\+frequency.\+hpp\char`\"{}}\newline
+{\ttfamily \#include $<$opencv2/core.\+hpp$>$}\newline
+{\ttfamily \#include $<$opencv2/imgproc.\+hpp$>$}\newline
+{\ttfamily \#include $<$opencv2/imgcodecs.\+hpp$>$}\newline
+{\ttfamily \#include $<$opencv2/highgui.\+hpp$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$cmath$>$}\newline
+Include dependency graph for ridge\+\_\+frequency.\+cpp\+:
+% FIG 0
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+Mat \hyperlink{ridge__frequency_8cpp_a9843182218e6590c2d2243b68a4b3421}{get\+\_\+orientation\+\_\+block} (Mat src, int block\+\_\+size)
+\begin{DoxyCompactList}\small\item\em Give the orientation angle of a block. \end{DoxyCompactList}\item 
+vector$<$ float $>$ \hyperlink{ridge__frequency_8cpp_ade78bc22b256d608d84d48bfaa00b451}{x\+\_\+signature} (Mat src, int i, int j, int block\+\_\+size)
+\begin{DoxyCompactList}\small\item\em Find the window centered on the block and orthogonal to the orientation of this block. \end{DoxyCompactList}\item 
+vector$<$ float $>$ \hyperlink{ridge__frequency_8cpp_a98331866a852b603889237f1256dea83}{deriv\+\_\+signature} (vector$<$ float $>$ \&\hyperlink{ridge__frequency_8cpp_ade78bc22b256d608d84d48bfaa00b451}{x\+\_\+signature})
+\begin{DoxyCompactList}\small\item\em Derivation of a vector. \end{DoxyCompactList}\item 
+vector$<$ float $>$ \hyperlink{ridge__frequency_8cpp_a0dff2bec965f749dcd9069ab2de2dee5}{second\+\_\+deriv\+\_\+signature} (vector$<$ float $>$ \&\hyperlink{ridge__frequency_8cpp_a98331866a852b603889237f1256dea83}{deriv\+\_\+signature})
+\begin{DoxyCompactList}\small\item\em Second derivative of the vector. \end{DoxyCompactList}\item 
+float \hyperlink{ridge__frequency_8cpp_ad00ac1e6764413f64ac98312788046d9}{frequency} (vector$<$ float $>$ \&\hyperlink{ridge__frequency_8cpp_ade78bc22b256d608d84d48bfaa00b451}{x\+\_\+signature})
+\begin{DoxyCompactList}\small\item\em Find the frequency of a set of points stored in a vector. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Tools to get the frequency of a block to apply the Gabor filter (not done in this project) 
+
+\begin{DoxyAuthor}{Author}
+Daniel Gabaï 
+\end{DoxyAuthor}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{ridge__frequency_8cpp_a98331866a852b603889237f1256dea83}\label{ridge__frequency_8cpp_a98331866a852b603889237f1256dea83}} 
+\index{ridge\+\_\+frequency.\+cpp@{ridge\+\_\+frequency.\+cpp}!deriv\+\_\+signature@{deriv\+\_\+signature}}
+\index{deriv\+\_\+signature@{deriv\+\_\+signature}!ridge\+\_\+frequency.\+cpp@{ridge\+\_\+frequency.\+cpp}}
+\subsubsection{\texorpdfstring{deriv\+\_\+signature()}{deriv\_signature()}}
+{\footnotesize\ttfamily vector$<$ float $>$ deriv\+\_\+signature (\begin{DoxyParamCaption}\item[{vector$<$ float $>$ \&}]{x\+\_\+signature }\end{DoxyParamCaption})}
+
+
+
+Derivation of a vector. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x\+\_\+signature} & input vector. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+derived vector. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{ridge__frequency_8cpp_ad00ac1e6764413f64ac98312788046d9}\label{ridge__frequency_8cpp_ad00ac1e6764413f64ac98312788046d9}} 
+\index{ridge\+\_\+frequency.\+cpp@{ridge\+\_\+frequency.\+cpp}!frequency@{frequency}}
+\index{frequency@{frequency}!ridge\+\_\+frequency.\+cpp@{ridge\+\_\+frequency.\+cpp}}
+\subsubsection{\texorpdfstring{frequency()}{frequency()}}
+{\footnotesize\ttfamily float frequency (\begin{DoxyParamCaption}\item[{vector$<$ float $>$ \&}]{x\+\_\+signature }\end{DoxyParamCaption})}
+
+
+
+Find the frequency of a set of points stored in a vector. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x\+\_\+signature} & input vector. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the frequency of the signal. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{ridge__frequency_8cpp_a9843182218e6590c2d2243b68a4b3421}\label{ridge__frequency_8cpp_a9843182218e6590c2d2243b68a4b3421}} 
+\index{ridge\+\_\+frequency.\+cpp@{ridge\+\_\+frequency.\+cpp}!get\+\_\+orientation\+\_\+block@{get\+\_\+orientation\+\_\+block}}
+\index{get\+\_\+orientation\+\_\+block@{get\+\_\+orientation\+\_\+block}!ridge\+\_\+frequency.\+cpp@{ridge\+\_\+frequency.\+cpp}}
+\subsubsection{\texorpdfstring{get\+\_\+orientation\+\_\+block()}{get\_orientation\_block()}}
+{\footnotesize\ttfamily Mat get\+\_\+orientation\+\_\+block (\begin{DoxyParamCaption}\item[{Mat}]{src,  }\item[{int}]{block\+\_\+size }\end{DoxyParamCaption})}
+
+
+
+Give the orientation angle of a block. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em src} & input image. \\
+\hline
+{\em block\+\_\+size} & size of the block. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+image with the value of the orientation angle in each block. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{ridge__frequency_8cpp_a0dff2bec965f749dcd9069ab2de2dee5}\label{ridge__frequency_8cpp_a0dff2bec965f749dcd9069ab2de2dee5}} 
+\index{ridge\+\_\+frequency.\+cpp@{ridge\+\_\+frequency.\+cpp}!second\+\_\+deriv\+\_\+signature@{second\+\_\+deriv\+\_\+signature}}
+\index{second\+\_\+deriv\+\_\+signature@{second\+\_\+deriv\+\_\+signature}!ridge\+\_\+frequency.\+cpp@{ridge\+\_\+frequency.\+cpp}}
+\subsubsection{\texorpdfstring{second\+\_\+deriv\+\_\+signature()}{second\_deriv\_signature()}}
+{\footnotesize\ttfamily vector$<$ float $>$ second\+\_\+deriv\+\_\+signature (\begin{DoxyParamCaption}\item[{vector$<$ float $>$ \&}]{deriv\+\_\+signature }\end{DoxyParamCaption})}
+
+
+
+Second derivative of the vector. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em deriv\+\_\+signature} & input vector. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+second derivate vector. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{ridge__frequency_8cpp_ade78bc22b256d608d84d48bfaa00b451}\label{ridge__frequency_8cpp_ade78bc22b256d608d84d48bfaa00b451}} 
+\index{ridge\+\_\+frequency.\+cpp@{ridge\+\_\+frequency.\+cpp}!x\+\_\+signature@{x\+\_\+signature}}
+\index{x\+\_\+signature@{x\+\_\+signature}!ridge\+\_\+frequency.\+cpp@{ridge\+\_\+frequency.\+cpp}}
+\subsubsection{\texorpdfstring{x\+\_\+signature()}{x\_signature()}}
+{\footnotesize\ttfamily vector$<$ float $>$ x\+\_\+signature (\begin{DoxyParamCaption}\item[{Mat}]{src,  }\item[{int}]{i,  }\item[{int}]{j,  }\item[{int}]{block\+\_\+size }\end{DoxyParamCaption})}
+
+
+
+Find the window centered on the block and orthogonal to the orientation of this block. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em src} & input image. \\
+\hline
+{\em i} & center of the block on the x axis. \\
+\hline
+{\em j} & center of the block on the y axis. \\
+\hline
+{\em block\+\_\+size} & size of blocks. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the vector of x\+\_\+signature. 
+\end{DoxyReturn}

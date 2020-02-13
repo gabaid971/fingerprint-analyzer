@@ -11,6 +11,7 @@ var searchData=
   ['test_5forientation_5fmap_2ecpp',['test_orientation_map.cpp',['../test__orientation__map_8cpp.html',1,'']]],
   ['test_5frectangle_2ecpp',['test_rectangle.cpp',['../test__rectangle_8cpp.html',1,'']]],
   ['test_5fremap_2ecpp',['test_remap.cpp',['../test__remap_8cpp.html',1,'']]],
+  ['test_5fridge_5ffrequency_2ecpp',['test_ridge_frequency.cpp',['../test__ridge__frequency_8cpp.html',1,'']]],
   ['test_5frotation_2ecpp',['test_rotation.cpp',['../test__rotation_8cpp.html',1,'']]],
   ['test_5fskeleton_2ecpp',['test_skeleton.cpp',['../test__skeleton_8cpp.html',1,'']]],
   ['test_5fsymmetry_2ecpp',['test_symmetry.cpp',['../test__symmetry_8cpp.html',1,'']]],
