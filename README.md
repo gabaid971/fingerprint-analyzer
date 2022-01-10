@@ -3,7 +3,7 @@
 MSIAM project M1.
 Preprocessing of fingerprint images.
 
-To learn about the project, take a look to "Report_fingerprint.pdf".
+To learn about the project, take a look at "Report_fingerprint.pdf".
 
 How to launch tests:
 
