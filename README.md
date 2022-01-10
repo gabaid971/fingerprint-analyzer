@@ -3,6 +3,8 @@
 MSIAM project M1.
 Preprocessing of fingerprint images.
 
+To learn about the project, take a look to "Report_fingerprint.pdf".
+
 How to launch tests:
 
 1/ Open the Makefile, then modify the source by giving the test that you need to execute.
